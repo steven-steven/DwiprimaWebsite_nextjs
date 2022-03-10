@@ -2,6 +2,8 @@ import Head from 'next/head'
 import { PlayIcon, DownloadIcon } from '@heroicons/react/solid'
 import { PlayIcon as PlayOutline } from '@heroicons/react/outline'
 import ContactForm from '../components/contact_form'
+import Link from 'next/link'
+import NavBar from '../components/navigation'
 
 export default function Home() {
   return (
@@ -14,22 +16,8 @@ export default function Home() {
       <section className='h-1 min-h-screen text-white bg-cover bg-main-bg'>
         <div className='h-full bg-blue-900 opacity-90'>
           <div className='flex flex-col h-full'>
-            <div id='navigation' className='flex flex-row items-center justify-center h-48 text-2xl'>
-              <div className='flex flex-row justify-center w-1/5 flex-2 gap-x-4'>
-                <img src='/logo-bw.png' className='w-24 h-24'></img>
-                <div className='flex flex-col justify-center'>
-                  <span> Dwiprima </span>
-                  <span> Karyaguna</span>
-                </div>
-              </div>
-              <div className='flex flex-row justify-center flex-auto gap-x-20'>
-                <div className='hover:underline underline-offset-8 hover:cursor-pointer'>Home</div>
-                <div className='hover:underline underline-offset-8 hover:cursor-pointer'>Work</div>
-                <div className='hover:underline underline-offset-8 hover:cursor-pointer'>Blog</div>
-              </div>
-              <div className='w-1/5 flex-2'>
-                <div className='p-3 text-center text-black bg-white cursor-pointer w-28 hover:bg-gray-400'>Contact</div>
-              </div>
+            <div className='flex justify-center h-48'>
+              <NavBar/>
             </div>
             <div className='flex flex-row items-center h-full'>
               <div className='flex flex-col w-2/3 h-full px-16 pt-3 justify-evenly'>
@@ -59,11 +47,13 @@ export default function Home() {
         <div className='h-full bg-blue-200 bg-opacity-50'>
           <div className='flex flex-col justify-center h-full text-4xl'>
             <p className='mb-10 text-center'>Ready to see how we can help?</p>
-            <div className='inline-block px-10 py-6 mx-auto my-0 align-middle border border-black hover:bg-opacity-50 hover:cursor-pointer hover:bg-gray-700 group rounded-3xl'>
-              <PlayIcon className="hidden w-16 h-16 text-blue-500 group-hover:inline"/>
-              <PlayOutline className="inline w-16 h-16 text-gray-700 group-hover:hidden"/>
-              <span>&nbsp; Watch Now</span>
-            </div>
+            <Link href="/video">
+              <div className='inline-block px-10 py-6 mx-auto my-0 align-middle border border-black hover:bg-opacity-50 hover:cursor-pointer hover:bg-gray-700 group rounded-3xl'>
+                <PlayIcon className="hidden w-16 h-16 text-blue-500 group-hover:inline"/>
+                <PlayOutline className="inline w-16 h-16 text-gray-700 group-hover:hidden"/>
+                <span>&nbsp; Watch Now</span>
+              </div>
+            </Link>
           </div>
         </div>
       </section>
@@ -128,7 +118,7 @@ export default function Home() {
       <section id='blog_banner' className='bg-white'>
         <div className='flex items-center text-4xl'>
           <p className='inline-block w-1/2 px-24 py-16'>Dig in for insights of what's going on in the company and industry</p>
-          <div className='px-16 py-8 mx-auto my-0 text-xl border-4 hover:bg-gray-200 hover:cursor-pointer rounded-3xl'><span>Visit our Blog -></span></div>
+          <Link href='/blog'><div className='px-16 py-8 mx-auto my-0 text-xl border-4 hover:bg-gray-200 hover:cursor-pointer rounded-3xl'><span>Visit our Blog -></span></div></Link>
         </div>
       </section>
 
