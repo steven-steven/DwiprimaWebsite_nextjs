@@ -2,6 +2,7 @@ import Head from 'next/head'
 import NavBar from '../../components/navigation'
 import fs from 'fs';
 import matter from 'gray-matter';
+import ReactMarkdown from 'react-markdown';
 
 // determines which paths will be prerendered amongst the /posts/[slug]
 export async function getStaticPaths() {
@@ -30,7 +31,7 @@ export async function getStaticProps({ params: { slug } }) {
     props: {
       slug,
       content,
-      frontmatter: { title: data.title, date: data.updatedAt, author:data.author },
+      frontmatter: { title: data.title, date: data.updatedAt, author:data.author, img_src: data.img_src, vid_src: data.vid_src || null },
     },
   };
 }
@@ -38,21 +39,24 @@ export async function getStaticProps({ params: { slug } }) {
 export default function Post( { slug, content, frontmatter } ) {
 
   return (
-    <div className='flex flex-col bg-slate-200'>
+    <div className='flex flex-col'>
       <Head>
         <title>Dwiprima Karyaguna</title>
         <link rel="icon" href="/dpLogo.png" />
       </Head>
 
-      <section className='py-5 text-white bg-blue-900'>
+      <section className='py-5 text-white bg-primary-blue'>
         <NavBar/>
       </section>
 
-      <section className='px-24 py-8'>
-        <img src='/' className='h-56 mx-auto my-0 mb-8'/>
+      <section className='px-24 pt-8 pb-20 bg-slate-200'>
+        <img src={frontmatter.img_src} className='w-1/2 mx-auto my-0 mb-10'/>
         <h1 className='mb-2 text-4xl text-center'>{frontmatter.title}</h1>
-        <p className='mb-5 text-lg text-center'>{frontmatter.date} | {frontmatter.author}</p>
-        <p className='text-lg text-justify'>{content}</p>
+        <p className='mb-12 text-lg text-center'>{frontmatter.date} | {frontmatter.author}</p>
+        <article className='mx-auto my-0 text-lg prose text-justify'><ReactMarkdown skipHtml={false}>{content}</ReactMarkdown></article>
+        {frontmatter.vid_src && 
+          <iframe className='mx-auto my-0 mt-10' width="560" height="315" src={frontmatter.vid_src} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        }
       </section>
       
       

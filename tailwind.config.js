@@ -5,6 +5,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        'primary-blue': '#334275',
+        'video-blue': '#A6BAFF',
+      },
       backgroundImage: {
         'main-bg': "url('/img/main-bg.png')",
         'main-blasting-img': "/img/blast1.png",
@@ -17,5 +21,6 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/forms'),
+    require('@tailwindcss/typography')
   ],
 }

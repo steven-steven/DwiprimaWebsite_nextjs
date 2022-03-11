@@ -14,7 +14,7 @@ export default function Home() {
       </Head>
 
       <section className='h-1 min-h-screen text-white bg-cover bg-main-bg'>
-        <div className='h-full bg-blue-900 opacity-90'>
+        <div className='h-full bg-primary-blue opacity-90'>
           <div className='flex flex-col h-full'>
             <div className='flex justify-center h-48'>
               <NavBar/>
@@ -43,14 +43,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section id='showcase_video' className='bg-center bg-cover h-80 bg-vid-preview'>
-        <div className='h-full bg-blue-200 bg-opacity-50'>
+      <section id='showcase_video' className='bg-center bg-cover h-96 bg-vid-preview'>
+        <div className='h-full bg-opacity-50 bg-video-blue'>
           <div className='flex flex-col justify-center h-full text-4xl'>
             <p className='mb-10 text-center'>Ready to see how we can help?</p>
             <Link href="/video">
               <div className='inline-block px-10 py-6 mx-auto my-0 align-middle border border-black hover:bg-opacity-50 hover:cursor-pointer hover:bg-gray-700 group rounded-3xl'>
-                <PlayIcon className="hidden w-16 h-16 text-blue-500 group-hover:inline"/>
-                <PlayOutline className="inline w-16 h-16 text-gray-700 group-hover:hidden"/>
+                <PlayIcon className="hidden w-16 h-16 text-blue-700 group-hover:inline"/>
+                <PlayOutline className="inline w-16 h-16 text-blue-700 group-hover:hidden"/>
                 <span>&nbsp; Watch Now</span>
               </div>
             </Link>
@@ -73,7 +73,7 @@ export default function Home() {
       <section id='services' className='text-white bg-white'>
         <div className='flex flex-col'>
           <div id='sandblasting' className='bg-main-bg'>
-            <div className='flex p-8 bg-blue-900 opacity-90'>
+            <div className='flex p-8 bg-primary-blue opacity-90'>
 
               <img src='/img/blasting.png' className='w-1/2'/>
               <div className='flex flex-col w-full p-20'>
@@ -85,7 +85,7 @@ export default function Home() {
             </div>
           </div>
           <div id='painting' className='bg-main-bg'>
-            <div className='flex p-8 bg-blue-900 opacity-90'>
+            <div className='flex p-8 bg-primary-blue opacity-90'>
             
               <img src='/img/painting.png' className='w-1/2'/>
               <div className='flex flex-col w-full p-20'>
@@ -97,7 +97,7 @@ export default function Home() {
             </div>
           </div>
           <div id='heavyequipment' className='bg-main-bg'>
-            <div className='flex p-8 bg-blue-900 opacity-90'>
+            <div className='flex p-8 bg-primary-blue opacity-90'>
 
               <img src='/img/rentals.png' className='w-1/2'/>
               <div className='flex flex-col w-full p-20'>
@@ -116,15 +116,17 @@ export default function Home() {
 
 
       <section id='blog_banner' className='bg-white'>
-        <div className='flex items-center text-4xl'>
+        <div className='flex items-center text-3xl'>
           <p className='inline-block w-1/2 px-24 py-16'>Dig in for insights of what's going on in the company and industry</p>
           <Link href='/blog'><div className='px-16 py-8 mx-auto my-0 text-xl border-4 hover:bg-gray-200 hover:cursor-pointer rounded-3xl'><span>Visit our Blog -></span></div></Link>
         </div>
       </section>
 
-      <section id='contact_us' className='text-white bg-blue-900'>
+      <section id='contact_us' className='text-white bg-primary-blue'>
         <div className='flex py-24 text-4xl'>
-          <p className='inline-block w-1/2 px-24'>Please reach out and we'll do our best to help you</p>
+          <p className='inline-block w-1/2 pl-24 pr-40'>Contact Us <br/> 
+            <span className='text-2xl'>Please reach out and we'll do our best to help you</span>
+          </p>
           <ContactForm/>
         </div>
       </section>
