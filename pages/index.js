@@ -4,8 +4,13 @@ import { PlayIcon as PlayOutline } from '@heroicons/react/outline'
 import ContactForm from '../components/contact_form'
 import Link from 'next/link'
 import NavBar from '../components/navigation'
+import { Parallax } from 'react-scroll-parallax';
+import { useState } from 'react';
+import { ParallaxProvider } from 'react-scroll-parallax';
 
 export default function Home() {
+  const [scrollParallaxNum, setScrollParallaxNum] = useState(0);
+
   return (
     <div>
       <Head>
@@ -70,36 +75,45 @@ export default function Home() {
         </div>
       </section>
 
+      <ParallaxProvider>
       <section id='services' className='text-white bg-white'>
-        <div className='flex flex-col'>
+        <div className='sticky top-0 z-10 flex py-2 pl-5 text-xl bg-white gap-x-2 bg-opacity-90'>
+          <div className={`p-5 rounded-xl ${scrollParallaxNum == 0 ? 'bg-primary-blue':'bg-gray-400'}`}>Sandblasting</div>
+          <div className={`p-5 rounded-xl ${scrollParallaxNum == 1 ? 'bg-primary-blue':'bg-gray-400'}`}>Painting</div>
+          <div className={`p-5 rounded-xl ${scrollParallaxNum == 2 ? 'bg-primary-blue':'bg-gray-400'}`}>Heavy Equipment Rental</div>
+        </div>
+        <div className='relative flex flex-col'>
           <div id='sandblasting' className='bg-main-bg'>
-            <div className='flex p-8 bg-primary-blue opacity-90'>
+            <div className='flex px-8 py-48 bg-primary-blue opacity-90'>
 
               <img src='/img/blasting.png' className='w-1/2'/>
-              <div className='flex flex-col w-full p-20'>
-                <p className='mb-3 text-4xl'>Sandblasting</p>
-                <hr/>
-                <p className='mt-10 text-2xl'>Build as the first commercial blasting painting company in Cilegon, we are experienced in handling any material to paint</p>
-              </div>
-
+              <Parallax speed={50} onEnter={()=> setScrollParallaxNum(0)}>
+                <div className='flex flex-col w-full p-20'>
+                  <p className='mb-3 text-4xl'>Sandblasting</p>
+                  <hr/>
+                  <p className='mt-10 text-2xl'>Build as the first commercial blasting painting company in Cilegon, we are experienced in handling any material to paint</p>
+                </div>
+              </Parallax>
             </div>
           </div>
           <div id='painting' className='bg-main-bg'>
-            <div className='flex p-8 bg-primary-blue opacity-90'>
+            <div className='flex p-8 py-48 bg-primary-blue opacity-90'>
             
               <img src='/img/painting.png' className='w-1/2'/>
-              <div className='flex flex-col w-full p-20'>
-                <p className='mb-3 text-4xl'>Painting</p>
-                <hr/>
-                <p className='mt-10 text-2xl'>Build as the first commercial blasting painting company in Cilegon, we are experienced in handling any material to paint</p>
-              </div>
-
+              <Parallax speed={50} onEnter={()=> setScrollParallaxNum(1)}>
+                <div className='flex flex-col w-full p-20'>
+                  <p className='mb-3 text-4xl'>Painting</p>
+                  <hr/>
+                  <p className='mt-10 text-2xl'>Build as the first commercial blasting painting company in Cilegon, we are experienced in handling any material to paint</p>
+                </div>
+              </Parallax>
             </div>
           </div>
           <div id='heavyequipment' className='bg-main-bg'>
-            <div className='flex p-8 bg-primary-blue opacity-90'>
+            <div className='flex p-8 py-48 bg-primary-blue opacity-90'>
 
               <img src='/img/rentals.png' className='w-1/2'/>
+              <Parallax speed={50} onEnter={()=> setScrollParallaxNum(2)}>
               <div className='flex flex-col w-full p-20'>
                 <p className='mb-3 text-4xl'>Heavy Equipment Rental</p>
                 <hr/>
@@ -107,11 +121,12 @@ export default function Home() {
                 We owned a complete set of compressors available for your every kind of projects 
                 </p>
               </div>
-
+              </Parallax>
             </div>
           </div>
         </div>
       </section>
+      </ParallaxProvider>
 
 
 
@@ -127,7 +142,9 @@ export default function Home() {
           <p className='inline-block w-1/2 pl-24 pr-40'>Contact Us <br/> 
             <span className='text-2xl'>Please reach out and we'll do our best to help you</span>
           </p>
-          <ContactForm/>
+          <div className='pr-24'>
+            <ContactForm/>
+          </div>
         </div>
       </section>
 

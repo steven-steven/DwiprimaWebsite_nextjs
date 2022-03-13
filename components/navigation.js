@@ -19,7 +19,7 @@ export default function NavBar() {
       </div>
       <div className='w-1/5 flex-2'>
         {router.pathname == '/' && (
-          <Link href='#contact_us'>
+          <Link href='/contact_us'>
             <div className='p-3 text-center text-black bg-white cursor-pointer w-28 hover:bg-gray-400'>Contact</div>
           </Link>
         )}

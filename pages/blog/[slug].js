@@ -55,7 +55,7 @@ export default function Post( { slug, content, frontmatter } ) {
         <p className='mb-12 text-lg text-center'>{frontmatter.date} | {frontmatter.author}</p>
         <article className='mx-auto my-0 text-lg prose text-justify'><ReactMarkdown skipHtml={false}>{content}</ReactMarkdown></article>
         {frontmatter.vid_src && 
-          <iframe className='mx-auto my-0 mt-10' width="560" height="315" src={frontmatter.vid_src} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe className='mx-auto my-0 mt-10' width="560" height="315" src={frontmatter.vid_src} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
         }
       </section>
       
