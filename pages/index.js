@@ -21,7 +21,7 @@ export default function Home() {
       <section className='h-1 min-h-screen text-white bg-cover bg-main-bg'>
         <div className='h-full bg-primary-blue opacity-90'>
           <div className='flex flex-col h-full'>
-            <div className='flex justify-center h-48'>
+            <div className='fixed top-0 left-0 right-0 z-50 flex justify-center h-24 bg-primary-blue opacity-90 md:h-48 md:relative'>
               <NavBar/>
             </div>
             <div className='flex flex-row items-center h-full'>
@@ -42,14 +42,14 @@ export default function Home() {
       </section>
 
       <section className='mb-10 bg-white'>
-        <p className='my-10 text-4xl text-center'>Trusted by partners like</p>
-        <div className="grid items-stretch justify-around grid-cols-6 grid-rows-4 mx-20 justify-items-center gap-x-12">
-          { [...Array(23).keys()].map(i => <img key={i} className='object-scale-down h-32 cursor-pointer grayscale hover:grayscale-0' src={`/clientLogos/${i+1}.png`}/> )}
+        <p className='my-10 text-2xl text-center md:text-4xl'>Trusted by partners like</p>
+        <div className="grid items-stretch justify-around grid-cols-4 mx-20 md:grid-cols-6 justify-items-center gap-x-12">
+          { [...Array(23).keys()].map(i => <img key={i} className='object-scale-down h-16 cursor-pointer md:h-32 md:grayscale hover:grayscale-0' src={`/clientLogos/${i+1}.png`}/> )}
         </div>
       </section>
 
       <section id='showcase_video' className='bg-center bg-cover h-96 bg-vid-preview'>
-        <div className='h-full bg-opacity-50 bg-video-blue'>
+        <div className='h-full bg-opacity-60 bg-video-blue'>
           <div className='flex flex-col justify-center h-full text-4xl'>
             <p className='mb-10 text-center'>Ready to see how we can help?</p>
             <Link href="/video">
@@ -77,14 +77,14 @@ export default function Home() {
 
       <ParallaxProvider>
       <section id='services' className='text-white bg-white'>
-        <div className='sticky top-0 z-10 flex py-2 pl-5 text-xl bg-white gap-x-2 bg-opacity-90'>
+        <div className='sticky top-0 z-10 flex flex-col px-5 py-2 text-lg bg-white md:flex-row md:text-xl gap-y-2 md:gap-x-2 bg-opacity-90'>
           <div className={`p-5 rounded-xl ${scrollParallaxNum == 0 ? 'bg-primary-blue':'bg-gray-400'}`}>Sandblasting</div>
           <div className={`p-5 rounded-xl ${scrollParallaxNum == 1 ? 'bg-primary-blue':'bg-gray-400'}`}>Painting</div>
           <div className={`p-5 rounded-xl ${scrollParallaxNum == 2 ? 'bg-primary-blue':'bg-gray-400'}`}>Heavy Equipment Rental</div>
         </div>
         <div className='relative flex flex-col'>
           <div id='sandblasting' className='bg-main-bg'>
-            <div className='flex px-8 py-48 bg-primary-blue opacity-90'>
+            <div className='flex flex-col px-8 py-48 md:flex-row bg-primary-blue opacity-90'>
 
               <img src='/img/blasting.png' className='w-1/2'/>
               <Parallax speed={50} onEnter={()=> setScrollParallaxNum(0)}>
@@ -97,7 +97,7 @@ export default function Home() {
             </div>
           </div>
           <div id='painting' className='bg-main-bg'>
-            <div className='flex p-8 py-48 bg-primary-blue opacity-90'>
+            <div className='flex flex-col px-8 py-48 md:flex-row bg-primary-blue opacity-90'>
             
               <img src='/img/painting.png' className='w-1/2'/>
               <Parallax speed={50} onEnter={()=> setScrollParallaxNum(1)}>
@@ -110,7 +110,7 @@ export default function Home() {
             </div>
           </div>
           <div id='heavyequipment' className='bg-main-bg'>
-            <div className='flex p-8 py-48 bg-primary-blue opacity-90'>
+            <div className='flex flex-col px-8 py-48 md:flex-row bg-primary-blue opacity-90'>
 
               <img src='/img/rentals.png' className='w-1/2'/>
               <Parallax speed={50} onEnter={()=> setScrollParallaxNum(2)}>
@@ -131,14 +131,14 @@ export default function Home() {
 
 
       <section id='blog_banner' className='bg-white'>
-        <div className='flex items-center text-3xl'>
+        <div className='flex flex-col items-center text-3xl md:flex-row'>
           <p className='inline-block w-1/2 px-24 py-16'>Dig in for insights of what's going on in the company and industry</p>
           <Link href='/blog'><div className='px-16 py-8 mx-auto my-0 text-xl border-4 hover:bg-gray-200 hover:cursor-pointer rounded-3xl'><span>Visit our Blog -></span></div></Link>
         </div>
       </section>
 
       <section id='contact_us' className='text-white bg-primary-blue'>
-        <div className='flex py-24 text-4xl'>
+        <div className='flex flex-col py-24 text-4xl md:flex-row'>
           <p className='inline-block w-1/2 pl-24 pr-40'>Contact Us <br/> 
             <span className='text-2xl'>Please reach out and we'll do our best to help you</span>
           </p>
