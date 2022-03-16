@@ -49,11 +49,11 @@ export default function Post( { slug, content, frontmatter } ) {
         <NavBar/>
       </section>
 
-      <section className='px-16 pt-8 pb-20 md:px-24 bg-slate-200'>
+      <section className='px-8 pt-8 pb-20 md:px-24 bg-slate-200'>
         <img src={frontmatter.img_src} className='mx-auto my-0 mb-10 md:w-1/2'/>
         <h1 className='mb-2 text-2xl text-center md:text-4xl'>{frontmatter.title}</h1>
         <p className='mb-12 text-base text-center md:text-lg'>{frontmatter.date} | {frontmatter.author}</p>
-        <article className='mx-auto my-0 text-base prose text-justify md:text-lg'><ReactMarkdown skipHtml={false}>{content}</ReactMarkdown></article>
+        <article className='mx-auto my-0 text-sm prose text-justify md:text-lg'><ReactMarkdown skipHtml={false}>{content}</ReactMarkdown></article>
         {frontmatter.vid_src && 
           <iframe className='mx-auto my-0 mt-10' width="560" height="315" src={frontmatter.vid_src} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
         }

@@ -9,13 +9,15 @@ export default function NavBar() {
 
   return (
     <div id='navigation' className='flex flex-row items-center justify-between w-full text-lg md:text-2xl md:justify-center'>
-      <div className='flex flex-row pl-5 md:w-1/5 flex-2 gap-x-2 md:gap-x-4'>
-        <img src='/logo-bw.png' className='w-16 h-16 md:w-24 md:h-24'></img>
-        <div className='flex flex-col justify-center'>
-          <span> Dwiprima </span>
-          <span> Karyaguna</span>
+      <Link href={'/'}>  
+        <div className='flex flex-row pl-5 md:w-1/5 flex-2 gap-x-2 md:gap-x-4'>
+          <img src='/logo-bw.png' className='w-16 h-16 md:w-24 md:h-24'></img>
+          <div className='flex flex-col justify-center'>
+            <span> Dwiprima </span>
+            <span> Karyaguna</span>
+          </div>
         </div>
-      </div>
+      </Link>
       <div className='flex-row justify-center flex-auto hidden md:flex gap-x-20'>
         <Link href='/'><div className={`hover:underline underline-offset-8 hover:cursor-pointer ${router.pathname == '/' ? 'underline' : ''}`}>Home</div></Link>
         <Link href='/blog'><div className={`hover:underline underline-offset-8 hover:cursor-pointer ${router.pathname == '/blog' ? 'underline' : ''}`}>Blog</div></Link>

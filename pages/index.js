@@ -26,8 +26,8 @@ export default function Home() {
             </div>
             <div className='flex flex-row items-center h-full'>
               <div className='flex flex-col w-full h-full px-16 pt-24 md:pt-3 md:w-2/3 justify-evenly'>
-                <p className='text-2xl md:text-4xl'> A leading <u>Sandblasting</u>, <u>Painting</u> & <u>Heavy Equipment Rental</u> company in Indonesia</p>
-                <p className='text-lg md:text-2xl'>Started in 1996, we've grown and is commited to provide the best quality work and expertise you can trust</p>
+                <p className='text-xl md:text-4xl'> A leading <u>Sandblasting</u>, <u>Painting</u> & <u>Heavy Equipment Rental</u> company in Indonesia</p>
+                <p className='text-sm md:text-2xl'>Started in 1996, we've grown and is commited to provide the best quality work and expertise you can trust</p>
                 <div className='ml-5 md:w-4/5 shadow-spray-effect'>
                   <img src='/img/blast1.png' className='object-scale-down'/>
                 </div>
