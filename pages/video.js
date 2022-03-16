@@ -20,7 +20,7 @@ export default function Video() {
             </div>
           </Link>
         </div>
-        <div className='w-[56.25%] relative grow'>
+        <div className='mt-5 w-full md:w-[56.25%] relative grow'>
           <iframe className='absolute top-0 left-0 w-full h-full' src="https://www.youtube.com/embed/keCEYHU3zpY" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
         </div>
       </section>

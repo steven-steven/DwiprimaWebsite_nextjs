@@ -15,7 +15,7 @@ module.exports = {
         "vid-preview": "url('/img/vid_preview.gif')",
       },
       boxShadow: {
-        'spray-effect': '-20px 20px 15px 5px #334275;',
+        'spray-effect': '-20px 20px 15px 5px #40518D;',
       }
     },
   },

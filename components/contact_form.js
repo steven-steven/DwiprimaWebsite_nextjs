@@ -49,7 +49,7 @@ export default function ContactForm() {
     )
   } else {
     return (
-      <div className="grid grid-cols-2 gap-x-24 gap-y-16">
+      <div className="flex flex-col md:grid md:grid-cols-2 md:gap-x-24 gap-y-16">
         <label className="block">
           <span className="text-lg text-gray-300">Name</span>
           <input

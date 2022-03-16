@@ -25,14 +25,14 @@ export default function Home() {
               <NavBar/>
             </div>
             <div className='flex flex-row items-center h-full'>
-              <div className='flex flex-col w-2/3 h-full px-16 pt-3 justify-evenly'>
-                <p className='text-4xl'> A leading <u>Sandblasting</u>, <u>Painting</u> & <u>Heavy Equipment Rental</u> company in Indonesia</p>
-                <p className='text-2xl'>Started in 1996, we've grown and is commited to provide the best quality work and expertise you can trust</p>
-                <div className='w-4/5 ml-5 shadow-spray-effect'>
+              <div className='flex flex-col w-full h-full px-16 pt-24 md:pt-3 md:w-2/3 justify-evenly'>
+                <p className='text-2xl md:text-4xl'> A leading <u>Sandblasting</u>, <u>Painting</u> & <u>Heavy Equipment Rental</u> company in Indonesia</p>
+                <p className='text-lg md:text-2xl'>Started in 1996, we've grown and is commited to provide the best quality work and expertise you can trust</p>
+                <div className='ml-5 md:w-4/5 shadow-spray-effect'>
                   <img src='/img/blast1.png' className='object-scale-down'/>
                 </div>
               </div>
-              <div className='flex flex-col items-center justify-end h-full'>
+              <div className='flex-col items-center justify-end hidden h-full md:flex'>
                 <img src='/img/wheel.png' className='w-64 h-64'/>
                 <img src='/img/cowboy.png' className='h-2/5'/>
               </div>
@@ -41,9 +41,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className='mb-10 bg-white'>
+      <section className='mb-5 bg-white md:mb-10'>
         <p className='my-10 text-2xl text-center md:text-4xl'>Trusted by partners like</p>
-        <div className="grid items-stretch justify-around grid-cols-4 mx-20 md:grid-cols-6 justify-items-center gap-x-12">
+        <div className="grid items-stretch justify-around grid-cols-4 mx-5 md:mx-20 md:grid-cols-6 justify-items-center gap-x-12">
           { [...Array(23).keys()].map(i => <img key={i} className='object-scale-down h-16 cursor-pointer md:h-32 md:grayscale hover:grayscale-0' src={`/clientLogos/${i+1}.png`}/> )}
         </div>
       </section>
@@ -64,9 +64,9 @@ export default function Home() {
       </section>
 
       <section id='about_us' className='bg-white'>
-        <div className='flex items-center text-4xl'>
-          <p className='inline-block w-1/3 font-semibold text-center'>About Us</p>
-          <p className='w-2/3 py-20 pr-20 text-xl'>Founded in 1993, at the moment PT. Dwiprima Karyaguna has grown rapidly and has expanded to outer Java area throughout Batam and Pekanbaru.
+        <div className='flex flex-col items-center mt-10 md:mt-0 md:flex-row'>
+          <p className='inline-block w-1/3 text-3xl text-center md:font-semibold md:text-4xl'>About Us</p>
+          <p className='px-10 py-10 text-base md:px-0 md:w-2/3 md:text-xl md:py-20 md:pr-20'>Founded in 1993, at the moment PT. Dwiprima Karyaguna has grown rapidly and has expanded to outer Java area throughout Batam and Pekanbaru.
           <br/><br/>
           Our company has gained trust from companies, such as Government Owned Company (BUMN), national private and foreign companies.
           We also maintain a relationship with material vendors needed in our projects, some are paint producers and other material producers in Indonesia.
@@ -86,12 +86,12 @@ export default function Home() {
           <div id='sandblasting' className='bg-main-bg'>
             <div className='flex flex-col px-8 py-48 md:flex-row bg-primary-blue opacity-90'>
 
-              <img src='/img/blasting.png' className='w-1/2'/>
+              <img src='/img/blasting.png' className='md:w-1/2'/>
               <Parallax speed={50} onEnter={()=> setScrollParallaxNum(0)}>
                 <div className='flex flex-col w-full p-20'>
-                  <p className='mb-3 text-4xl'>Sandblasting</p>
+                  <p className='mb-3 text-2xl md:text-4xl'>Sandblasting</p>
                   <hr/>
-                  <p className='mt-10 text-2xl'>Build as the first commercial blasting painting company in Cilegon, we are experienced in handling any material to paint</p>
+                  <p className='mt-10 text-lg md:text-2xl'>Build as the first commercial blasting painting company in Cilegon, we are experienced in handling any material to paint</p>
                 </div>
               </Parallax>
             </div>
@@ -99,12 +99,12 @@ export default function Home() {
           <div id='painting' className='bg-main-bg'>
             <div className='flex flex-col px-8 py-48 md:flex-row bg-primary-blue opacity-90'>
             
-              <img src='/img/painting.png' className='w-1/2'/>
+              <img src='/img/painting.png' className='md:w-1/2'/>
               <Parallax speed={50} onEnter={()=> setScrollParallaxNum(1)}>
                 <div className='flex flex-col w-full p-20'>
-                  <p className='mb-3 text-4xl'>Painting</p>
+                  <p className='mb-3 text-2xl md:text-4xl'>Painting</p>
                   <hr/>
-                  <p className='mt-10 text-2xl'>Build as the first commercial blasting painting company in Cilegon, we are experienced in handling any material to paint</p>
+                  <p className='mt-10 text-lg md:text-2xl'>Build as the first commercial blasting painting company in Cilegon, we are experienced in handling any material to paint</p>
                 </div>
               </Parallax>
             </div>
@@ -112,12 +112,12 @@ export default function Home() {
           <div id='heavyequipment' className='bg-main-bg'>
             <div className='flex flex-col px-8 py-48 md:flex-row bg-primary-blue opacity-90'>
 
-              <img src='/img/rentals.png' className='w-1/2'/>
+              <img src='/img/rentals.png' className='md:w-1/2'/>
               <Parallax speed={50} onEnter={()=> setScrollParallaxNum(2)}>
               <div className='flex flex-col w-full p-20'>
-                <p className='mb-3 text-4xl'>Heavy Equipment Rental</p>
+                <p className='mb-3 text-2xl md:text-4xl'>Heavy Equipment Rental</p>
                 <hr/>
-                <p className='mt-10 text-2xl'>As a supporting tool for our project, we owned heavy equipments which we also rented to clients <br/>
+                <p className='mt-10 text-lg md:text-2xl'>As a supporting tool for our project, we owned heavy equipments which we also rented to clients <br/>
                 We owned a complete set of compressors available for your every kind of projects 
                 </p>
               </div>
@@ -131,51 +131,52 @@ export default function Home() {
 
 
       <section id='blog_banner' className='bg-white'>
-        <div className='flex flex-col items-center text-3xl md:flex-row'>
-          <p className='inline-block w-1/2 px-24 py-16'>Dig in for insights of what's going on in the company and industry</p>
-          <Link href='/blog'><div className='px-16 py-8 mx-auto my-0 text-xl border-4 hover:bg-gray-200 hover:cursor-pointer rounded-3xl'><span>Visit our Blog -></span></div></Link>
+        <div className='flex flex-col items-center text-xl md:text-3xl md:flex-row'>
+          <p className='inline-block px-10 pt-10 md:pb-16 md:px-24 md:w-1/2'>Dig in for insights of what's going on in the company and industry</p>
+          <Link href='/blog'><div className='px-16 py-8 mx-auto my-10 text-lg border-4 md:my-0 md:text-xl hover:bg-gray-200 hover:cursor-pointer rounded-3xl'><span>Visit our Blog -></span></div></Link>
         </div>
       </section>
 
       <section id='contact_us' className='text-white bg-primary-blue'>
-        <div className='flex flex-col py-24 text-4xl md:flex-row'>
-          <p className='inline-block w-1/2 pl-24 pr-40'>Contact Us <br/> 
-            <span className='text-2xl'>Please reach out and we'll do our best to help you</span>
+        <div className='flex flex-col py-16 text-3xl md:py-24 md:text-4xl md:flex-row'>
+          <p className='inline-block px-10 text-center md:text-left md:pr-40 md:pl-24 md:w-1/2'>
+            Contact Us <br/> 
+            <span className='text-lg md:text-2xl'>Please reach out and we'll do our best to help you</span>
           </p>
-          <div className='pr-24'>
+          <div className='px-10 pt-12 md:px-0 md:pt-0 md:pr-24'>
             <ContactForm/>
           </div>
         </div>
       </section>
 
-      <footer className='text-xl text-white bg-black'>
-        <div className='grid grid-cols-2 mx-24 pt-11'>
+      <footer className='text-white bg-black'>
+        <div className='flex flex-col pt-8 mx-10 md:mx-24 md:grid md:grid-cols-2 md:pt-11'>
           <div>
             <div className='flex flex-row items-center gap-x-5'>
-              <img src='/logo-bw.png' className='w-24 h-24'></img>
-              <span className='text-2xl'>PT Dwiprima Karyaguna</span>
+              <img src='/logo-bw.png' className='w-16 h-16 md:w-24 md:h-24'></img>
+              <span className='md:text-2xl'>PT Dwiprima Karyaguna</span>
             </div>
-            <p className='pl-5 mt-5 text-lg'>
+            <p className='pl-5 mt-5 text-sm md:text-lg'>
               Jl. Raya Anyer No.122 Cilegon – Banten <br/>
               Telp: (0254) 312114<br/>
               Fax: (0254) 310084<br/>
               Email: witarso.ng_dp@yahoo.co.id
             </p>
           </div>
-          <div className='mt-5 text-lg text-right'>
-             <p className='mb-5'>Download Company Profile</p>
-             <a className='relative block float-right group w-36' href="/company_profile.pdf" download="Dwiprima Company Profile">
+          <div className='mt-5 md:text-lg md:text-right'>
+             <p className='mt-4 mb-3 md:mb-5 md:mt-0'>Download Company Profile</p>
+             <a className='relative block w-28 md:float-right group md:w-36' href="/company_profile.pdf" download="Dwiprima Company Profile">
               <img src='/img/companyprofile.png' className='w-full group-hover:opacity-60'/>
               <div className='absolute w-full text-center opacity-0 group-hover:opacity-100 top-1/3'>
                 <DownloadIcon className='inline w-12 h-12 p-3 border rounded-3xl'/>
               </div>
              </a>
           </div>
-          <div className='col-span-2 mt-16'>
+          <div className='col-span-2 mt-5 md:mt-16'>
             <hr/>
-            <p className='py-5 text-base'>
+            <p className='py-5 text-sm md:text-base'>
               <span>© Copyright PT Dwiprima Karyaguna. All Rights Reserved.</span>
-              <span className='float-right'>Made with 🛠‍ in Cilegon Indonesia</span>
+              <span className='block md:inline md:float-right'>Made with 🛠‍ in Cilegon Indonesia</span>
             </p>
           </div>
         </div>
