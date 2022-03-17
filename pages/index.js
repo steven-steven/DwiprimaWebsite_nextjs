@@ -31,7 +31,7 @@ export default function Home() {
             priority
           />
         </div>
-        <div className='fixed top-0 left-0 right-0 z-50 flex justify-center h-24 md:hidden bg-opacity-80 bg-primary-blue'>
+        <div className='fixed top-0 left-0 right-0 z-50 flex justify-center h-16 md:hidden bg-opacity-80 bg-primary-blue'>
           <NavBar/>
         </div>
         <div className='h-full bg-primary-blue bg-opacity-90'>
@@ -151,7 +151,7 @@ export default function Home() {
                 <div className='flex flex-col w-full p-5 md:p-10'>
                   <p className='mb-3 text-2xl md:text-4xl'>Sandblasting</p>
                   <hr/>
-                  <p className='mt-10 text-lg md:text-2xl'>Build as the first commercial blasting painting company in Cilegon, we are experienced in handling any material to paint</p>
+                  <p className='mt-10 text-lg md:text-2xl'>With decades of accumulated sandblasting expertise and machineries, we are capable of performing the job for a wide range of surfaces, materials, profiles that fit your needs.</p>
                 </div>
               </Parallax>
             </div>
@@ -179,7 +179,7 @@ export default function Home() {
                 <div className='flex flex-col w-full p-5 md:p-10'>
                   <p className='mb-3 text-2xl md:text-4xl'>Painting</p>
                   <hr/>
-                  <p className='mt-10 text-lg md:text-2xl'>Build as the first commercial blasting painting company in Cilegon, we are experienced in handling any material to paint</p>
+                  <p className='mt-10 text-lg md:text-2xl'>We are experienced in handling any material to paint</p>
                 </div>
               </Parallax>
             </div>
@@ -253,8 +253,8 @@ export default function Home() {
               Email: witarso.ng_dp@yahoo.co.id
             </p>
           </div>
-          <div className='mt-5 md:text-lg md:text-right'>
-             <p className='mt-4 mb-3 md:mb-5 md:mt-0'>Download Company Profile</p>
+          <div className='pl-5 mt-5 text-sm md:pl-0 md:text-lg md:text-right'>
+             <p className='mt-2 md:mb-5 md:mt-0'>Download Company Profile</p>
              <a className='relative block w-28 md:float-right group md:w-36' href="/company_profile.pdf" download="Dwiprima Company Profile">
               <img src='/img/companyprofile.png' className='w-full group-hover:opacity-60'/>
               <div className='absolute w-full text-center opacity-0 group-hover:opacity-100 top-1/3'>
@@ -264,7 +264,7 @@ export default function Home() {
           </div>
           <div className='col-span-2 mt-5 md:mt-16'>
             <hr/>
-            <p className='py-5 text-sm md:text-base'>
+            <p className='py-5 text-xs md:text-base'>
               <span>© Copyright PT Dwiprima Karyaguna. All Rights Reserved.</span>
               <span className='block md:inline md:float-right'>Made with 🛠‍ in Cilegon Indonesia</span>
             </p>
