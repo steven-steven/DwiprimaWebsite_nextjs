@@ -19,7 +19,7 @@ export default function Home() {
         <link rel="icon" href="/dpLogo.png" />
       </Head>
 
-      <section className='h-1 min-h-screen text-white'>
+      <section className='relative text-white md:h-1 md:min-h-screen'>
         <div className='absolute w-full h-full -z-10'>
           <Image
             alt="Main Background"
@@ -40,7 +40,7 @@ export default function Home() {
               <NavBar/>
             </div>
             <div className='flex flex-row items-center h-full'>
-              <div className='flex flex-col w-full h-full px-16 pt-24 md:pt-3 md:w-2/3 justify-evenly'>
+              <div className='flex flex-col w-full h-full px-16 pb-16 pt-36 gap-y-16 md:pt-3 md:w-2/3 justify-evenly'>
                 <p className='text-xl md:text-4xl'> A leading <u>Sandblasting</u>, <u>Painting</u> & <u>Heavy Equipment Rental</u> company in Indonesia</p>
                 <p className='text-sm md:text-2xl'>Started in 1996, we've grown and is commited to provide the best quality work and expertise you can trust</p>
                 <div className='ml-5 md:w-4/5 shadow-spray-effect'>
@@ -110,8 +110,8 @@ export default function Home() {
 
       <section id='about_us' className='bg-white'>
         <div className='flex flex-col items-center mt-10 md:mt-0 md:flex-row'>
-          <p className='inline-block w-1/3 text-3xl text-center md:font-semibold md:text-4xl'>About Us</p>
-          <p className='px-10 py-10 text-base md:px-0 md:w-2/3 md:text-xl md:py-20 md:pr-20'>Founded in 1993, at the moment PT. Dwiprima Karyaguna has grown rapidly and has expanded to outer Java area throughout Batam and Pekanbaru.
+          <p className='inline-block w-1/3 text-xl text-center md:font-semibold md:text-4xl'>About Us</p>
+          <p className='px-10 py-10 text-sm md:px-0 md:w-2/3 md:text-xl md:py-20 md:pr-20'>Founded in 1993, at the moment PT. Dwiprima Karyaguna has grown rapidly and has expanded to outer Java area throughout Batam and Pekanbaru.
           <br/><br/>
           Our company has gained trust from companies, such as Government Owned Company (BUMN), national private and foreign companies.
           We also maintain a relationship with material vendors needed in our projects, some are paint producers and other material producers in Indonesia.
@@ -231,7 +231,7 @@ export default function Home() {
         <div className='flex flex-col py-16 text-3xl md:py-24 md:text-4xl md:flex-row'>
           <p className='inline-block px-10 text-center md:text-left md:pr-40 md:pl-24 md:w-1/2'>
             Contact Us <br/> 
-            <span className='text-lg md:text-2xl'>Please reach out and we'll do our best to help you</span>
+            <span className='hidden text-xl md:inline'>Please reach out and we'll do our best to help you</span>
           </p>
           <div className='px-10 pt-12 md:px-0 md:pt-0 md:pr-24'>
             <ContactForm/>
