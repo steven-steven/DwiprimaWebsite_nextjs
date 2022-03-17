@@ -20,7 +20,7 @@ export default function Home() {
       </Head>
 
       <section className='h-1 min-h-screen text-white'>
-        <div className='absolute w-full h-full overflow-hidden -z-10'>
+        <div className='absolute w-full h-full -z-10'>
           <Image
             alt="Main Background"
             src="/img/main-bg.png"
@@ -28,6 +28,7 @@ export default function Home() {
             objectFit="cover"
             width={4000}
             height={3000}
+            priority
           />
         </div>
         <div className='fixed top-0 left-0 right-0 z-50 flex justify-center h-24 md:hidden bg-opacity-80 bg-primary-blue'>
@@ -63,7 +64,7 @@ export default function Home() {
 
       <section className='mb-5 bg-white md:mb-10'>
         <p className='my-10 text-2xl text-center md:text-4xl'>Trusted by partners like</p>
-        <div className="grid items-stretch justify-around grid-cols-4 mx-5 md:mx-20 md:grid-cols-6 justify-items-center gap-x-12">
+        <div className="grid items-stretch justify-around grid-cols-4 mx-5 md:mx-20 md:grid-cols-6 justify-items-center gap-x-6 md:gap-x-12">
           { [...Array(23).keys()].map(i => (
             <img key={i} className='object-scale-down h-16 cursor-pointer md:h-32 md:grayscale hover:grayscale-0' src={`/clientLogos/${i+1}.png`}/> 
             // <Image
@@ -90,6 +91,7 @@ export default function Home() {
             objectPosition="center"
             width={640}
             height={335}
+            priority
           />
         </div>
         <div className='h-full bg-opacity-60 bg-video-blue'>
