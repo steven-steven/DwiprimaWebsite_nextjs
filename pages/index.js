@@ -7,6 +7,7 @@ import NavBar from '../components/navigation'
 import { Parallax } from 'react-scroll-parallax';
 import { useState } from 'react';
 import { ParallaxProvider } from 'react-scroll-parallax';
+import Image from 'next/image'
 
 export default function Home() {
   const [scrollParallaxNum, setScrollParallaxNum] = useState(0);
@@ -18,10 +19,23 @@ export default function Home() {
         <link rel="icon" href="/dpLogo.png" />
       </Head>
 
-      <section className='h-1 min-h-screen text-white bg-cover bg-main-bg'>
-        <div className='h-full bg-primary-blue opacity-90'>
+      <section className='h-1 min-h-screen text-white'>
+        <div className='absolute w-full h-full overflow-hidden -z-10'>
+          <Image
+            alt="Main Background"
+            src="/img/main-bg.png"
+            layout="fill"
+            objectFit="cover"
+            width={4000}
+            height={3000}
+          />
+        </div>
+        <div className='fixed top-0 left-0 right-0 z-50 flex justify-center h-24 md:hidden bg-opacity-80 bg-primary-blue'>
+          <NavBar/>
+        </div>
+        <div className='h-full bg-primary-blue bg-opacity-90'>
           <div className='flex flex-col h-full'>
-            <div className='fixed top-0 left-0 right-0 z-50 flex justify-center h-24 bg-primary-blue opacity-90 md:h-48 md:relative'>
+            <div id='md-screen-navbar' className='justify-center hidden h-48 md:flex'>
               <NavBar/>
             </div>
             <div className='flex flex-row items-center h-full'>
@@ -29,7 +43,13 @@ export default function Home() {
                 <p className='text-xl md:text-4xl'> A leading <u>Sandblasting</u>, <u>Painting</u> & <u>Heavy Equipment Rental</u> company in Indonesia</p>
                 <p className='text-sm md:text-2xl'>Started in 1996, we've grown and is commited to provide the best quality work and expertise you can trust</p>
                 <div className='ml-5 md:w-4/5 shadow-spray-effect'>
-                  <img src='/img/blast1.png' className='object-scale-down'/>
+                  <Image
+                    alt="BlastingImage"
+                    src="/img/blast1.png"
+                    layout="responsive"
+                    width={1040}
+                    height={585}
+                  />
                 </div>
               </div>
               <div className='flex-col items-center justify-end hidden h-full md:flex'>
@@ -44,13 +64,36 @@ export default function Home() {
       <section className='mb-5 bg-white md:mb-10'>
         <p className='my-10 text-2xl text-center md:text-4xl'>Trusted by partners like</p>
         <div className="grid items-stretch justify-around grid-cols-4 mx-5 md:mx-20 md:grid-cols-6 justify-items-center gap-x-12">
-          { [...Array(23).keys()].map(i => <img key={i} className='object-scale-down h-16 cursor-pointer md:h-32 md:grayscale hover:grayscale-0' src={`/clientLogos/${i+1}.png`}/> )}
+          { [...Array(23).keys()].map(i => (
+            <img key={i} className='object-scale-down h-16 cursor-pointer md:h-32 md:grayscale hover:grayscale-0' src={`/clientLogos/${i+1}.png`}/> 
+            // <Image
+            //   key={i}
+            //   alt="PartnerLogo"
+            //   src={`/clientLogos/${i+1}.png`}
+            //   layout="fill"
+            //   objectFit="scale-down"
+            //   width="556"
+            //   height="386"
+            //   className='object-scale-down h-16 cursor-pointer md:h-32 md:grayscale hover:grayscale-0'
+            // />
+          ))}
         </div>
       </section>
 
-      <section id='showcase_video' className='bg-center bg-cover h-96 bg-vid-preview'>
+      <section id='showcase_video' className='h-96'>
+        <div className='absolute w-full overflow-hidden h-96 -z-10'>
+          <Image
+            alt="Promotional video"
+            src="/img/vid_preview.gif"
+            layout="fill"
+            objectFit="cover"
+            objectPosition="center"
+            width={640}
+            height={335}
+          />
+        </div>
         <div className='h-full bg-opacity-60 bg-video-blue'>
-          <div className='flex flex-col justify-center h-full text-4xl'>
+          <div className='flex flex-col justify-center h-full text-xl md:text-4xl'>
             <p className='mb-10 text-center'>Ready to see how we can help?</p>
             <Link href="/video">
               <div className='inline-block px-10 py-6 mx-auto my-0 align-middle border border-black hover:bg-opacity-50 hover:cursor-pointer hover:bg-gray-700 group rounded-3xl'>
@@ -77,18 +120,33 @@ export default function Home() {
 
       <ParallaxProvider>
       <section id='services' className='text-white bg-white'>
-        <div className='sticky top-0 z-10 flex flex-col px-5 py-2 text-lg bg-white md:flex-row md:text-xl gap-y-2 md:gap-x-2 bg-opacity-90'>
+        <div className='sticky top-0 z-10 flex-col hidden px-5 py-2 text-lg bg-white md:flex md:flex-row md:text-xl gap-y-2 md:gap-x-2 bg-opacity-90'>
           <div className={`p-5 rounded-xl ${scrollParallaxNum == 0 ? 'bg-primary-blue':'bg-gray-400'}`}>Sandblasting</div>
           <div className={`p-5 rounded-xl ${scrollParallaxNum == 1 ? 'bg-primary-blue':'bg-gray-400'}`}>Painting</div>
           <div className={`p-5 rounded-xl ${scrollParallaxNum == 2 ? 'bg-primary-blue':'bg-gray-400'}`}>Heavy Equipment Rental</div>
         </div>
         <div className='relative flex flex-col'>
-          <div id='sandblasting' className='bg-main-bg'>
+          <div id='sandblasting' className='relative'>
+            <div className='absolute w-full h-full overflow-hidden'>
+              <Image
+                alt="Main Background"
+                src="/img/main-bg.png"
+                layout="fill"
+                objectFit="cover"
+                width={4000}
+                height={3000}
+              />
+            </div>
             <div className='flex flex-col px-8 py-48 md:flex-row bg-primary-blue opacity-90'>
-
-              <img src='/img/blasting.png' className='md:w-1/2'/>
+              <Image
+                alt="BlastingImage1"
+                src="/img/blasting.png"
+                className='md:w-1/2'
+                width={1486}
+                height={920}
+              />
               <Parallax speed={50} onEnter={()=> setScrollParallaxNum(0)}>
-                <div className='flex flex-col w-full p-20'>
+                <div className='flex flex-col w-full p-5 md:p-10'>
                   <p className='mb-3 text-2xl md:text-4xl'>Sandblasting</p>
                   <hr/>
                   <p className='mt-10 text-lg md:text-2xl'>Build as the first commercial blasting painting company in Cilegon, we are experienced in handling any material to paint</p>
@@ -96,12 +154,27 @@ export default function Home() {
               </Parallax>
             </div>
           </div>
-          <div id='painting' className='bg-main-bg'>
+          <div id='painting' className='relative'>
+            <div className='absolute w-full h-full overflow-hidden'>
+              <Image
+                alt="Main Background"
+                src="/img/main-bg.png"
+                layout="fill"
+                objectFit="cover"
+                width={4000}
+                height={3000}
+              />
+            </div>
             <div className='flex flex-col px-8 py-48 md:flex-row bg-primary-blue opacity-90'>
-            
-              <img src='/img/painting.png' className='md:w-1/2'/>
+              <Image
+                alt="PaintingImage"
+                src="/img/painting.png"
+                className='md:w-1/2'
+                width={1404}
+                height={1002}
+              />
               <Parallax speed={50} onEnter={()=> setScrollParallaxNum(1)}>
-                <div className='flex flex-col w-full p-20'>
+                <div className='flex flex-col w-full p-5 md:p-10'>
                   <p className='mb-3 text-2xl md:text-4xl'>Painting</p>
                   <hr/>
                   <p className='mt-10 text-lg md:text-2xl'>Build as the first commercial blasting painting company in Cilegon, we are experienced in handling any material to paint</p>
@@ -109,12 +182,27 @@ export default function Home() {
               </Parallax>
             </div>
           </div>
-          <div id='heavyequipment' className='bg-main-bg'>
+          <div id='heavyequipment' className='relative'>
+            <div className='absolute w-full h-full overflow-hidden'>
+              <Image
+                alt="Main Background"
+                src="/img/main-bg.png"
+                layout="fill"
+                objectFit="cover"
+                width={4000}
+                height={3000}
+              />
+            </div>
             <div className='flex flex-col px-8 py-48 md:flex-row bg-primary-blue opacity-90'>
-
-              <img src='/img/rentals.png' className='md:w-1/2'/>
+              <Image
+                alt="RentalsImage"
+                src="/img/rentals.png"
+                className='md:w-1/2'
+                width={1500}
+                height={986}
+              />
               <Parallax speed={50} onEnter={()=> setScrollParallaxNum(2)}>
-              <div className='flex flex-col w-full p-20'>
+              <div className='flex flex-col w-full p-5 md:p-20'>
                 <p className='mb-3 text-2xl md:text-4xl'>Heavy Equipment Rental</p>
                 <hr/>
                 <p className='mt-10 text-lg md:text-2xl'>As a supporting tool for our project, we owned heavy equipments which we also rented to clients <br/>
@@ -153,7 +241,7 @@ export default function Home() {
         <div className='flex flex-col pt-8 mx-10 md:mx-24 md:grid md:grid-cols-2 md:pt-11'>
           <div>
             <div className='flex flex-row items-center gap-x-5'>
-              <img src='/logo-bw.png' className='w-16 h-16 md:w-24 md:h-24'></img>
+              <img src='/logo-bw.png' className='w-10 h-10 md:w-24 md:h-24'></img>
               <span className='md:text-2xl'>PT Dwiprima Karyaguna</span>
             </div>
             <p className='pl-5 mt-5 text-sm md:text-lg'>

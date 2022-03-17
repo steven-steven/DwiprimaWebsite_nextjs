@@ -3,6 +3,7 @@ import Link from 'next/link'
 import NavBar from '../components/navigation'
 import fs from 'fs';
 import matter from 'gray-matter';
+import Image from 'next/image'
 
 export async function getStaticProps() {
   const files = fs.readdirSync(`${process.cwd()}/data/posts`);
