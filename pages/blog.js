@@ -41,8 +41,8 @@ export default function Blog({ posts }) {
       </section>
 
       <section className='px-6 py-8 md:px-24 grow bg-slate-200'>
-        <h1 className='pb-3 text-3xl md:text-4xl'>Blog</h1>
-        <p className='pb-3 text-lg md:text-xl'>Dig in for insights of what's going on in the company or in the industry</p>
+        <h1 className='pb-3 text-2xl md:text-4xl'>Blog</h1>
+        <p className='pb-3 text-sm md:text-xl'>Dig in for insights of what's going on in the company or in the industry</p>
         <hr className='h-px my-2 text-black bg-gray-400 border-0'/>
         <div className='flex flex-col p-5 gap-y-5'>
           {posts.map((post, idx) => {
@@ -68,9 +68,9 @@ const BlogEntry = ({ slug, description, img_src, title, date }) => (
     <div className='flex flex-col md:p-3 md:h-56 md:flex-row group hover:border hover:border-gray-400 hover:cursor-pointer'>
       <img src={img_src} className='md:h-full :w-full'/>
       <div className='flex flex-col px-5 py-5 md:px-10'>
-        <p className='mb-3 text-2xl'>{title}</p>
-        <p className='text-lg text-gray-500 grow'>{description}</p>
-        <p className='text-lg text-blue-500'>{date}</p>
+        <p className='mb-3 text-xl'>{title}</p>
+        <p className='text-sm text-gray-500 grow'>{description}</p>
+        <p className='text-sm text-blue-500'>{date}</p>
       </div>
     </div>
   </Link>
