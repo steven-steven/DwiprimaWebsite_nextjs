@@ -151,7 +151,7 @@ export default function Home() {
                 <div className='flex flex-col w-full p-5 md:p-10'>
                   <p className='mb-3 text-2xl md:text-4xl'>Sandblasting</p>
                   <hr/>
-                  <p className='mt-10 text-lg md:text-2xl'>With decades of accumulated sandblasting expertise and machineries, we are capable of performing the job for a wide range of surfaces, materials, profiles that fit your needs.</p>
+                  <p className='mt-10 text-base md:text-2xl'>With decades of accumulated sandblasting expertise and machineries, we are capable of performing the job for a wide range of surfaces, materials, profiles that fit your needs.</p>
                 </div>
               </Parallax>
             </div>
@@ -179,7 +179,7 @@ export default function Home() {
                 <div className='flex flex-col w-full p-5 md:p-10'>
                   <p className='mb-3 text-2xl md:text-4xl'>Painting</p>
                   <hr/>
-                  <p className='mt-10 text-lg md:text-2xl'>We are experienced in handling any material to paint</p>
+                  <p className='mt-10 text-base md:text-2xl'>We are experienced in handling any material to paint</p>
                 </div>
               </Parallax>
             </div>
@@ -207,7 +207,7 @@ export default function Home() {
               <div className='flex flex-col w-full p-5 md:p-20'>
                 <p className='mb-3 text-2xl md:text-4xl'>Heavy Equipment Rental</p>
                 <hr/>
-                <p className='mt-10 text-lg md:text-2xl'>As a supporting tool for our project, we owned heavy equipments which we also rented to clients <br/>
+                <p className='mt-10 text-base md:text-2xl'>As a supporting tool for our project, we owned heavy equipments which we also rented to clients <br/>
                 We owned a complete set of compressors available for your every kind of projects 
                 </p>
               </div>
