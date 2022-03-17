@@ -40,7 +40,7 @@ export default function Home() {
               <NavBar/>
             </div>
             <div className='flex flex-row items-center h-full'>
-              <div className='flex flex-col w-full h-full px-16 pb-16 pt-36 gap-y-16 md:pt-3 md:w-2/3 justify-evenly'>
+              <div className='flex flex-col w-full h-full px-16 pt-32 pb-16 gap-y-16 md:pt-3 md:w-2/3 justify-evenly'>
                 <p className='text-xl md:text-4xl'> A leading <u>Sandblasting</u>, <u>Painting</u> & <u>Heavy Equipment Rental</u> company in Indonesia</p>
                 <p className='text-sm md:text-2xl'>Started in 1996, we've grown and is commited to provide the best quality work and expertise you can trust</p>
                 <div className='ml-5 md:w-4/5 shadow-spray-effect'>
@@ -144,6 +144,7 @@ export default function Home() {
                 alt="BlastingImage1"
                 src="/img/blasting.png"
                 className='md:w-1/2'
+                priority
                 width={1486}
                 height={920}
               />
@@ -172,6 +173,7 @@ export default function Home() {
                 alt="PaintingImage"
                 src="/img/painting.png"
                 className='md:w-1/2'
+                priority
                 width={1404}
                 height={1002}
               />
@@ -200,6 +202,7 @@ export default function Home() {
                 alt="RentalsImage"
                 src="/img/rentals.png"
                 className='md:w-1/2'
+                priority
                 width={1500}
                 height={986}
               />
@@ -242,7 +245,7 @@ export default function Home() {
       <footer className='text-white bg-black'>
         <div className='flex flex-col pt-8 mx-10 md:mx-24 md:grid md:grid-cols-2 md:pt-11'>
           <div>
-            <div className='flex flex-row items-center gap-x-5'>
+            <div className='flex flex-row items-center gap-x-2 md:gap-x-5'>
               <img src='/logo-bw.png' className='w-10 h-10 md:w-24 md:h-24'></img>
               <span className='md:text-2xl'>PT Dwiprima Karyaguna</span>
             </div>
@@ -255,7 +258,7 @@ export default function Home() {
           </div>
           <div className='pl-5 mt-5 text-sm md:pl-0 md:text-lg md:text-right'>
              <p className='mt-2 md:mb-5 md:mt-0'>Download Company Profile</p>
-             <a className='relative block w-28 md:float-right group md:w-36' href="/company_profile.pdf" download="Dwiprima Company Profile">
+             <a className='relative block w-20 md:float-right group md:w-36' href="/company_profile.pdf" download="Dwiprima Company Profile">
               <img src='/img/companyprofile.png' className='w-full group-hover:opacity-60'/>
               <div className='absolute w-full text-center opacity-0 group-hover:opacity-100 top-1/3'>
                 <DownloadIcon className='inline w-12 h-12 p-3 border rounded-3xl'/>
