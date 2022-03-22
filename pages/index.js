@@ -40,7 +40,7 @@ export default function Home() {
               <NavBar/>
             </div>
             <div className='flex flex-row items-center h-full'>
-              <div className='flex flex-col w-full h-full px-16 pt-32 pb-16 gap-y-16 md:pt-3 md:w-2/3 justify-evenly'>
+              <div className='flex flex-col w-full h-full px-16 pt-32 pb-16 font-serif gap-y-16 md:pt-3 md:w-2/3 justify-evenly'>
                 <p className='text-xl md:text-4xl'> A leading <u>Sandblasting</u>, <u>Painting</u> & <u>Heavy Equipment Rental</u> company in Indonesia</p>
                 <p className='text-sm md:text-2xl'>Started in 1996, we've grown and is commited to provide the best quality work and expertise you can trust</p>
                 <div className='ml-5 md:w-4/5 shadow-spray-effect'>
@@ -110,7 +110,7 @@ export default function Home() {
 
       <section id='about_us' className='bg-white'>
         <div className='flex flex-col items-center mt-10 md:mt-0 md:flex-row'>
-          <p className='inline-block w-1/3 text-xl text-center md:font-semibold md:text-4xl'>About Us</p>
+          <p className='inline-block w-1/3 text-xl text-center md:font-semibold md:text-3xl'>About Us</p>
           <p className='px-10 py-10 text-sm md:px-0 md:w-2/3 md:text-xl md:py-20 md:pr-20'>Founded in 1993, at the moment PT. Dwiprima Karyaguna has grown rapidly and has expanded to outer Java area throughout Batam and Pekanbaru.
           <br/><br/>
           Our company has gained trust from companies, such as Government Owned Company (BUMN), national private and foreign companies.
@@ -119,6 +119,16 @@ export default function Home() {
           Our commitment is to become the best company in SANDBLAST, PAINT, CONCRETE REPAIR & HEAVY EQUIPMENT RENTAL which supply quality and quantity as per customer request. </p>
         </div>
       </section>
+
+      <div className='flex flex-col items-center mt-10 mb-20 md:mt-0'>
+        <p className='mb-5 text-xl md:text-3xl'>Download Our Company Profile</p>
+        <a className='relative block w-32 md:float-right group md:w-36' href="/company_profile.pdf" download="Dwiprima Company Profile">
+          <img src='/img/companyprofile.png' className='w-full group-hover:opacity-60'/>
+          <div className='absolute w-full text-center opacity-0 group-hover:opacity-100 top-1/3'>
+            <DownloadIcon className='inline w-12 h-12 p-3 border rounded-3xl'/>
+          </div>
+        </a>
+      </div>
 
       <ParallaxProvider>
       <section id='services' className='text-white bg-white'>
@@ -140,19 +150,20 @@ export default function Home() {
               />
             </div>
             <div className='flex flex-col px-8 py-48 md:flex-row bg-primary-blue opacity-90'>
-              <Image
-                alt="BlastingImage1"
-                src="/img/blasting.png"
-                className='md:w-1/2'
-                priority
-                width={1486}
-                height={920}
-              />
-              <Parallax speed={50} onEnter={()=> setScrollParallaxNum(0)}>
+              <div className='md:w-1/2'>
+                <Image
+                  alt="BlastingImage1"
+                  src="/img/blasting.png"
+                  priority
+                  width={1486}
+                  height={920}
+                />
+              </div>
+              <Parallax className='md:w-1/2' speed={50} onEnter={()=> setScrollParallaxNum(0)}>
                 <div className='flex flex-col w-full p-5 md:p-10'>
-                  <p className='mb-3 text-2xl md:text-4xl'>Sandblasting</p>
+                  <p className='mb-3 text-2xl md:text-3xl'>Sandblasting</p>
                   <hr/>
-                  <p className='mt-10 text-base md:text-2xl'>With decades of accumulated sandblasting expertise and machineries, we are capable of performing the job for a wide range of surfaces, materials, profiles that fit your needs.</p>
+                  <p className='mt-10 text-base md:text-xl'>With decades of accumulated sandblasting expertise and machineries, we are capable of performing the job for a wide range of surfaces, materials, profiles that fit your needs.</p>
                 </div>
               </Parallax>
             </div>
@@ -169,19 +180,20 @@ export default function Home() {
               />
             </div>
             <div className='flex flex-col px-8 py-48 md:flex-row bg-primary-blue opacity-90'>
-              <Image
-                alt="PaintingImage"
-                src="/img/painting.png"
-                className='md:w-1/2'
-                priority
-                width={1404}
-                height={1002}
-              />
-              <Parallax speed={50} onEnter={()=> setScrollParallaxNum(1)}>
+              <div className='md:w-1/2'>
+                <Image
+                  alt="PaintingImage"
+                  src="/img/painting.png"
+                  priority
+                  width={1404}
+                  height={1002}
+                />
+              </div>
+              <Parallax className='md:w-1/2' speed={50} onEnter={()=> setScrollParallaxNum(1)}>
                 <div className='flex flex-col w-full p-5 md:p-10'>
-                  <p className='mb-3 text-2xl md:text-4xl'>Painting</p>
+                  <p className='mb-3 text-2xl md:text-3xl'>Painting</p>
                   <hr/>
-                  <p className='mt-10 text-base md:text-2xl'>We are experienced in handling any material to paint</p>
+                  <p className='mt-10 text-base md:text-xl'>We are experienced in handling any material to paint, and handling projects from medium to large, on commercial building or even industrial environment.</p>
                 </div>
               </Parallax>
             </div>
@@ -198,22 +210,24 @@ export default function Home() {
               />
             </div>
             <div className='flex flex-col px-8 py-48 md:flex-row bg-primary-blue opacity-90'>
-              <Image
-                alt="RentalsImage"
-                src="/img/rentals.png"
-                className='md:w-1/2'
-                priority
-                width={1500}
-                height={986}
-              />
-              <Parallax speed={50} onEnter={()=> setScrollParallaxNum(2)}>
-              <div className='flex flex-col w-full p-5 md:p-20'>
-                <p className='mb-3 text-2xl md:text-4xl'>Heavy Equipment Rental</p>
-                <hr/>
-                <p className='mt-10 text-base md:text-2xl'>As a supporting tool for our project, we owned heavy equipments which we also rented to clients <br/>
-                We owned a complete set of compressors available for your every kind of projects 
-                </p>
+              <div className='md:w-1/2'>
+                <Image
+                  alt="RentalsImage"
+                  src="/img/rentals.png"
+                  priority
+                  width={1500}
+                  height={986}
+                />
               </div>
+              <Parallax className='md:w-1/2' speed={50} onEnter={()=> setScrollParallaxNum(2)}>
+                <div className='flex flex-col w-full p-5 md:p-20'>
+                  <p className='mb-3 text-2xl md:text-3xl'>Heavy Equipment Rental</p>
+                  <hr/>
+                  <p className='mt-10 text-base md:text-xl'>As a supporting tool for our project, we owned heavy equipments which we also rented to clients <br/>
+                  Our set of equipment includes forklifts, crane and air compressors. Those equipment are regularly inspected and certified. That way clients can always utilize the equipment without doubt regarding its condition. <br/>
+                  Check out the complete list of equipments in our company profile.
+                  </p>
+                </div>
               </Parallax>
             </div>
           </div>
