@@ -134,7 +134,7 @@ export default function Home() {
       <section id='services' className='text-white bg-white'>
         <div className='sticky top-0 z-10 flex-col hidden px-5 py-2 text-lg bg-white md:flex md:flex-row md:text-xl gap-y-2 md:gap-x-2 bg-opacity-90'>
           <div className={`p-5 rounded-xl ${scrollParallaxNum == 0 ? 'bg-primary-blue':'bg-gray-400'}`}>Sandblasting</div>
-          <div className={`p-5 rounded-xl ${scrollParallaxNum == 1 ? 'bg-primary-blue':'bg-gray-400'}`}>Painting</div>
+          <div className={`p-5 rounded-xl ${scrollParallaxNum == 1 ? 'bg-primary-blue':'bg-gray-400'}`}>Painting / Coating</div>
           <div className={`p-5 rounded-xl ${scrollParallaxNum == 2 ? 'bg-primary-blue':'bg-gray-400'}`}>Heavy Equipment Rental</div>
         </div>
         <div className='relative flex flex-col'>
@@ -188,12 +188,21 @@ export default function Home() {
                   width={1404}
                   height={1002}
                 />
+                <Image
+                  alt="Inspection Tools"
+                  src="/img/inspectionTools.png"
+                  priority
+                  width={1656}
+                  height={1268}
+                />
               </div>
               <Parallax className='md:w-1/2' speed={50} onEnter={()=> setScrollParallaxNum(1)}>
                 <div className='flex flex-col w-full p-5 md:p-10'>
-                  <p className='mb-3 text-2xl md:text-3xl'>Painting</p>
+                  <p className='mb-3 text-2xl md:text-3xl'>Painting / Coating</p>
                   <hr/>
-                  <p className='mt-10 text-base md:text-xl'>We are experienced in handling any material to paint, and handling projects from medium to large, on commercial building or even industrial environment.</p>
+                  <p className='mt-10 text-base md:text-xl'>We are experienced in handling any material to paint, and handling projects from medium to large, on commercial building or even industrial environment.<br/><br/>
+                  We use a set of sophisticated inspetion tools as a standard requirement for inspecting blasting and painting work, to measure the quality against customer specication. Regular inspection are done by third party company to ensure that these tools are always perfectly calibrated.
+                  </p>
                 </div>
               </Parallax>
             </div>
@@ -223,8 +232,8 @@ export default function Home() {
                 <div className='flex flex-col w-full p-5 md:p-20'>
                   <p className='mb-3 text-2xl md:text-3xl'>Heavy Equipment Rental</p>
                   <hr/>
-                  <p className='mt-10 text-base md:text-xl'>As a supporting tool for our project, we owned heavy equipments which we also rented to clients <br/>
-                  Our set of equipment includes forklifts, crane and air compressors. Those equipment are regularly inspected and certified. That way clients can always utilize the equipment without doubt regarding its condition. <br/>
+                  <p className='mt-10 text-base md:text-xl'>As a supporting tool for our project, we owned heavy equipments which we also rented to clients <br/><br/>
+                  Our set of equipment includes forklifts, crane and air compressors. Those equipment are regularly inspected and certified. That way clients can always utilize the equipment without doubt regarding its condition. <br/><br/>
                   Check out the complete list of equipments in our company profile.
                   </p>
                 </div>
