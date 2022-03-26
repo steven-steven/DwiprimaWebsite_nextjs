@@ -1,6 +1,30 @@
 import { useState } from 'react'
 
-export default function ContactForm() {
+const content = {
+  "en-US": {
+    name: "Name",
+    company: "Company",
+    phone: "Phone Number",
+    subject: "Subject",
+    email: "Email Address",
+    message: "Message",
+    submit: "Send",
+    confirmation: "Your Inquiry has been submitted. We'll try to get back to you shortly. Thanks!",
+  }, 
+  "id-ID": {
+    name: "Nama",
+    company: "Perusahaan",
+    phone: "Nomor telepon",
+    subject: "Subjek",
+    email: "Alamat email",
+    message: "Pesan",
+    submit: "Kirim",
+    confirmation: "Pesan anda telah terkirim. Kami akan meresponnya dalam jangka waktu dekat. Terima Kasih!",
+  }
+}
+
+export default function ContactForm({locale}) {
+  const localeContent = content[locale] || content['en-US'];
   const [name, setName] = useState('');
   const [company, setCompany] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -45,13 +69,13 @@ export default function ContactForm() {
 
   if(submitted){
     return (
-      <div className='pr-24 text-lg'>Your Inquiry has been submitted. We'll try to get back to you shortly. Thanks!</div>
+      <div className='pr-24 text-lg'>{localeContent.confirmation}</div>
     )
   } else {
     return (
       <div className="flex flex-col md:grid md:grid-cols-2 md:gap-x-24 gap-y-16">
         <label className="block">
-          <span className="text-lg text-gray-300">Name</span>
+          <span className="text-lg text-gray-300">{localeContent.name}</span>
           <input
             type="text"
             className="
@@ -69,7 +93,7 @@ export default function ContactForm() {
           />
         </label>
         <label className="block">
-          <span className="text-lg text-gray-300">Company</span>
+          <span className="text-lg text-gray-300">{localeContent.company}</span>
           <input
             type="text"
             className="
@@ -87,7 +111,7 @@ export default function ContactForm() {
           />
         </label>
         <label className="block">
-          <span className="text-lg text-gray-300">Email</span>
+          <span className="text-lg text-gray-300">{localeContent.email}</span>
           <input
             type="text"
             className="
@@ -105,7 +129,7 @@ export default function ContactForm() {
           />
         </label>
         <label className="block">
-          <span className="text-lg text-gray-300">Phone Number</span>
+          <span className="text-lg text-gray-300">{localeContent.phone}</span>
           <input
             type="text"
             className="
@@ -124,7 +148,7 @@ export default function ContactForm() {
         </label>
 
         <label className="block">
-          <span className="text-lg text-gray-300">Subject</span>
+          <span className="text-lg text-gray-300">{localeContent.subject}</span>
           <input
             type="text"
             className="
@@ -143,7 +167,7 @@ export default function ContactForm() {
         </label>
 
         <label className="block col-span-2">
-          <span className="text-lg text-gray-300">Message</span>
+          <span className="text-lg text-gray-300">{localeContent.message}</span>
           <textarea
             className="block w-full mt-1 text-white bg-transparent border-gray-400 rounded-md shadow-sm focus:border-white focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
             rows="3"
@@ -152,7 +176,7 @@ export default function ContactForm() {
           ></textarea>
         </label>
 
-        <input type='submit' className='py-3 text-base border rounded-xl hover:bg-blue-500 hover:bg-opacity-50 hover:cursor-pointer' onClick={(e)=>{handleSubmit(e)}} />
+        <input type='submit' className='py-3 text-base border rounded-xl hover:bg-blue-500 hover:bg-opacity-50 hover:cursor-pointer' onClick={(e)=>{handleSubmit(e)}} value={localeContent.submit} />
       </div>
     )
   }
