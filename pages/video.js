@@ -8,7 +8,7 @@ export default function Video() {
     <div>
       <Head>
         <title>Dwiprima Karyaguna</title>
-        <link rel="icon" href="/dpLogo.png" />
+        <link rel="icon" href="/dpLogo.ico" />
       </Head>
 
       <section className='flex flex-col items-center justify-center h-1 min-h-screen text-white bg-gray-700 py-28'>

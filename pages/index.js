@@ -68,7 +68,7 @@ export default function Home(props) {
     <div>
       <Head>
         <title>Dwiprima Karyaguna</title>
-        <link rel="icon" href="/dpLogo.png" />
+        <link rel="icon" href="/dpLogo.ico" />
       </Head>
 
       <section className='relative text-white md:h-1 md:min-h-screen'>
@@ -78,8 +78,6 @@ export default function Home(props) {
             src="/img/main-bg.png"
             layout="fill"
             objectFit="cover"
-            width={4000}
-            height={3000}
             priority
           />
         </div>
@@ -141,8 +139,6 @@ export default function Home(props) {
             layout="fill"
             objectFit="cover"
             objectPosition="center"
-            width={640}
-            height={335}
             priority
           />
         </div>
@@ -192,8 +188,6 @@ export default function Home(props) {
                 src="/img/main-bg.png"
                 layout="fill"
                 objectFit="cover"
-                width={4000}
-                height={3000}
               />
             </div>
             <div className='flex flex-col px-8 py-48 md:flex-row bg-primary-blue opacity-90'>
@@ -222,8 +216,6 @@ export default function Home(props) {
                 src="/img/main-bg.png"
                 layout="fill"
                 objectFit="cover"
-                width={4000}
-                height={3000}
               />
             </div>
             <div className='flex flex-col px-8 py-48 md:flex-row bg-primary-blue opacity-90'>
@@ -259,8 +251,6 @@ export default function Home(props) {
                 src="/img/main-bg.png"
                 layout="fill"
                 objectFit="cover"
-                width={4000}
-                height={3000}
               />
             </div>
             <div className='flex flex-col px-8 py-48 md:flex-row bg-primary-blue opacity-90'>

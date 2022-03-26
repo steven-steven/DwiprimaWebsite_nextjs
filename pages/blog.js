@@ -33,7 +33,7 @@ export default function Blog({ posts }) {
     <div className='flex flex-col'>
       <Head>
         <title>Dwiprima Karyaguna</title>
-        <link rel="icon" href="/dpLogo.png" />
+        <link rel="icon" href="/dpLogo.ico" />
       </Head>
 
       <section className='py-5 text-white bg-primary-blue'>

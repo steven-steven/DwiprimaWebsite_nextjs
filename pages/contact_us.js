@@ -7,7 +7,7 @@ export default function ContactUs() {
     <div className='flex flex-col'>
       <Head>
         <title>Dwiprima Karyaguna</title>
-        <link rel="icon" href="/dpLogo.png" />
+        <link rel="icon" href="/dpLogo.ico" />
       </Head>
 
 
