@@ -139,6 +139,8 @@ export default function Home(props) {
             layout="fill"
             objectFit="cover"
             objectPosition="center"
+            placeholder="blur"
+            blurDataURL='/img/vidBlurData.png'
             priority
           />
         </div>

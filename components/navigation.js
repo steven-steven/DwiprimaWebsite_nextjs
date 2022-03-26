@@ -50,15 +50,16 @@ export default function NavBar({locale}) {
             <div className='flex items-center justify-center md:ml-10 md:flex-col'>
               <span className='hidden w-12 mr-3 text-xs text-right md:w-auto xs:inline-block md:text-base'>{localeContent.language}</span>
 
-              <div class="relative inline-block w-10 md:w-20 mr-2 align-middle select-none transition duration-200 ease-in"
+              <div className="relative inline-block w-10 mr-2 align-middle transition duration-200 ease-in select-none md:w-20"
                 onClick={changeLocale}
               >
                 <input type="checkbox" name="toggle" 
-                  class='absolute block w-5 h-5 md:w-10 md:h-10 rounded-full bg-white border-4 appearance-none cursor-pointer checked:right-0 opacity-40 border-white'
+                  className='absolute block w-5 h-5 bg-white border-4 border-white rounded-full appearance-none cursor-pointer md:w-10 md:h-10 checked:right-0 opacity-40'
                   checked={locale === "id-ID"}
+                  readOnly
                 />
-                <label for="toggle" 
-                  class={`toggle-label block overflow-hidden h-5 md:h-10 rounded-full cursor-pointer ${locale === "id-ID" ? 'bg-contain bg-indo-flag':'bg-cover bg-us-flag'}`}>
+                <label htmlFor="toggle" 
+                  className={`toggle-label block overflow-hidden h-5 md:h-10 rounded-full cursor-pointer ${locale === "id-ID" ? 'bg-contain bg-indo-flag':'bg-cover bg-us-flag'}`}>
                 </label>
               </div>
             </div>
