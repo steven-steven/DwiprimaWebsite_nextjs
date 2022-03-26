@@ -117,17 +117,16 @@ export default function Home(props) {
         <p className='my-10 text-2xl text-center md:text-4xl'>{localeContent.clients}</p>
         <div className="grid items-stretch justify-around grid-cols-4 mx-5 md:mx-20 md:grid-cols-6 justify-items-center gap-x-6 md:gap-x-12">
           { [...Array(23).keys()].map(i => (
-            <img key={i} className='object-scale-down h-16 cursor-pointer md:h-32 md:grayscale hover:grayscale-0' src={`/clientLogos/${i+1}.png`}/> 
-            // <Image
-            //   key={i}
-            //   alt="PartnerLogo"
-            //   src={`/clientLogos/${i+1}.png`}
-            //   layout="fill"
-            //   objectFit="scale-down"
-            //   width="556"
-            //   height="386"
-            //   className='object-scale-down h-16 cursor-pointer md:h-32 md:grayscale hover:grayscale-0'
-            // />
+            <div className='relative w-16 h-16 cursor-pointer md:w-32 md:h-32 md:grayscale hover:grayscale-0'>
+              <Image
+                key={i}
+                alt="PartnerLogo"
+                src={`/clientLogos/${i+1}.png`}
+                layout="fill"
+                objectFit="scale-down"
+                quality={30}
+              />
+            </div>
           ))}
         </div>
       </section>
