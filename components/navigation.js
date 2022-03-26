@@ -3,16 +3,34 @@ import { useRouter } from "next/router";
 import { MenuIcon, XIcon } from '@heroicons/react/solid'
 import { useState } from 'react';
 
-export default function NavBar() {
+const content = {
+  "en-US": {
+    language: "Select Language",
+  }, 
+  "id-ID": {
+    language: "Pilih Bahasa",
+  }
+}
+
+export default function NavBar({locale}) {
   const router = useRouter();
   const [ isHamburgerOpen, setIsHamburgerOpen ] = useState(false);
+  const localeContent = content[locale];
+
+  const changeLocale = () => {
+    if (locale !== "id-ID"){
+      router.push(router.asPath, router.asPath,  { locale: "id-ID" })
+    } else {
+      router.push(router.asPath, router.asPath, { locale: "en-US" });
+    }
+  }
 
   return (
     <div id='navigation' className='flex flex-row items-center justify-between w-full text-sm md:text-2xl md:justify-center'>
       <Link href={'/'}>  
         <div className='flex flex-row pl-5 md:w-1/5 flex-2 gap-x-2 md:gap-x-4'>
           <img src='/logo-bw.png' className='w-12 h-12 md:w-24 md:h-24'></img>
-          <div className='flex flex-col justify-center'>
+          <div className='flex flex-col justify-center invisible xxs:visible'>
             <span> Dwiprima </span>
             <span> Karyaguna</span>
           </div>
@@ -22,11 +40,30 @@ export default function NavBar() {
         <Link href='/'><div className={`hover:underline underline-offset-8 hover:cursor-pointer ${router.pathname == '/' ? 'underline' : ''}`}>Home</div></Link>
         <Link href='/blog'><div className={`hover:underline underline-offset-8 hover:cursor-pointer ${router.pathname == '/blog' ? 'underline' : ''}`}>Blog</div></Link>
       </div>
-      <div className='hidden w-1/5 flex-2 md:flex'>
+      <div className='flex w-auto ml-auto md:ml-0 md:mr-24 flex-2'>
         {router.pathname == '/' && (
-          <Link href='/contact_us'>
-            <div className='p-3 text-center text-black bg-white cursor-pointer w-28 hover:bg-gray-400'>Contact</div>
-          </Link>
+          <div className='flex items-center'>
+            <Link href='/contact_us'>
+              <div className='hidden p-3 text-center text-black bg-white cursor-pointer md:inline-block w-28 hover:bg-gray-400'>Contact</div>
+            </Link>
+
+            <div className='flex items-center justify-center md:ml-10 md:flex-col'>
+              <span className='hidden w-12 mr-3 text-xs text-right md:w-auto xs:inline-block md:text-base'>{localeContent.language}</span>
+
+              <div class="relative inline-block w-10 md:w-20 mr-2 align-middle select-none transition duration-200 ease-in"
+                onClick={changeLocale}
+              >
+                <input type="checkbox" name="toggle" 
+                  class='absolute block w-5 h-5 md:w-10 md:h-10 rounded-full bg-white border-4 appearance-none cursor-pointer checked:right-0 opacity-40 border-white'
+                  checked={locale === "id-ID"}
+                />
+                <label for="toggle" 
+                  class={`toggle-label block overflow-hidden h-5 md:h-10 rounded-full cursor-pointer ${locale === "id-ID" ? 'bg-contain bg-indo-flag':'bg-cover bg-us-flag'}`}>
+                </label>
+              </div>
+            </div>
+          </div>
+          
         )}
       </div>
 
