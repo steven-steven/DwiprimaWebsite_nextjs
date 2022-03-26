@@ -98,6 +98,7 @@ export default function Home(props) {
                     alt="BlastingImage"
                     src="/img/blast1.png"
                     layout="responsive"
+                    priority
                     width={1040}
                     height={585}
                   />
@@ -197,7 +198,7 @@ export default function Home(props) {
                 <Image
                   alt="BlastingImage1"
                   src="/img/blasting.png"
-                  priority
+                  // priority
                   width={1486}
                   height={920}
                 />
@@ -225,14 +226,14 @@ export default function Home(props) {
                 <Image
                   alt="PaintingImage"
                   src="/img/painting.png"
-                  priority
+                  // priority
                   width={1404}
                   height={1002}
                 />
                 <Image
                   alt="Inspection Tools"
                   src="/img/inspectionTools.png"
-                  priority
+                  // priority
                   width={1656}
                   height={1268}
                 />
@@ -260,7 +261,7 @@ export default function Home(props) {
                 <Image
                   alt="RentalsImage"
                   src="/img/rentals.png"
-                  priority
+                  // priority
                   width={1500}
                   height={986}
                 />
