@@ -141,7 +141,6 @@ export default function Home(props) {
             objectPosition="center"
             placeholder="blur"
             blurDataURL='/img/vidBlurData.png'
-            priority
           />
         </div>
         <div className='h-full bg-opacity-60 bg-video-blue'>
