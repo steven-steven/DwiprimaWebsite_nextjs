@@ -166,8 +166,15 @@ export default function Home(props) {
 
       <div className='flex flex-col items-center mt-10 mb-20 md:mt-0'>
         <p className='mb-5 text-xl md:text-3xl'>{localeContent.companyprofile}</p>
-        <a className='relative block w-32 md:float-right group md:w-36' href="/company_profile.pdf" download="Dwiprima Company Profile">
-          <img src='/img/companyprofile.png' className='w-full group-hover:opacity-60'/>
+        <a className='relative block w-32 h-60 md:float-right group md:w-36' href="/company_profile.pdf" download="Dwiprima Company Profile">
+          <Image
+            src='/img/companyprofile.png'
+            className='group-hover:opacity-60'
+            alt="Click to download Company Profile"
+            layout="fill"
+            objectFit="scale-down"
+            quality={10}
+          />
           <div className='absolute w-full text-center opacity-0 group-hover:opacity-100 top-1/3'>
             <DownloadIcon className='inline w-12 h-12 p-3 border rounded-3xl'/>
           </div>
@@ -313,8 +320,15 @@ export default function Home(props) {
           </div>
           <div className='pl-5 mt-5 text-sm md:pl-0 md:text-lg md:text-right'>
              <p className='mt-2 md:mb-5 md:mt-0'>{localeContent.companyprofile}</p>
-             <a className='relative block w-20 md:float-right group md:w-36' href="/company_profile.pdf" download="Dwiprima Company Profile">
-              <img src='/img/companyprofile.png' className='w-full group-hover:opacity-60'/>
+             <a className='relative block w-20 h-48 md:float-right group md:w-36' href="/company_profile.pdf" download="Dwiprima Company Profile">
+                <Image
+                  src='/img/companyprofile.png'
+                  className='group-hover:opacity-60'
+                  alt="Click to download Company Profile"
+                  layout="fill"
+                  objectFit="scale-down"
+                  quality={10}
+                />
               <div className='absolute w-full text-center opacity-0 group-hover:opacity-100 top-1/3'>
                 <DownloadIcon className='inline w-12 h-12 p-3 border rounded-3xl'/>
               </div>
