@@ -289,7 +289,7 @@ export default function Home(props) {
       <section id='blog_banner' className='bg-white'>
         <div className='flex flex-col items-center text-xl md:text-3xl md:flex-row'>
           <p className='inline-block px-10 pt-10 md:pb-16 md:px-24 md:w-1/2'>{localeContent.blog}</p>
-          <Link href='/blog'><div className='px-16 py-8 mx-auto my-10 text-lg border-4 md:my-0 md:text-xl hover:bg-gray-200 hover:cursor-pointer rounded-3xl'><span>{localeContent.blogButton}</span></div></Link>
+          <Link href='/blog' locale={false}><div className='px-16 py-8 mx-auto my-10 text-lg border-4 md:my-0 md:text-xl hover:bg-gray-200 hover:cursor-pointer rounded-3xl'><span>{localeContent.blogButton}</span></div></Link>
         </div>
       </section>
 
@@ -308,7 +308,14 @@ export default function Home(props) {
         <div className='flex flex-col pt-8 mx-10 md:mx-24 md:grid md:grid-cols-2 md:pt-11'>
           <div>
             <div className='flex flex-row items-center gap-x-2 md:gap-x-5'>
-              <img src='/logo-bw.png' className='w-10 h-10 md:w-24 md:h-24'></img>
+              <div id='logo' className='relative w-10 h-10 md:w-20 md:h-20'>
+                <Image
+                  src='/logo-bw.png'
+                  layout='fill'
+                  objectFit="contain"
+                  quality={30}
+                />
+              </div>
               <span className='md:text-2xl'>PT Dwiprima Karyaguna</span>
             </div>
             <p className='pl-5 mt-5 text-sm md:text-lg'>
@@ -327,6 +334,8 @@ export default function Home(props) {
                   alt="Click to download Company Profile"
                   layout="fill"
                   objectFit="scale-down"
+                  placeholder='blur'
+                  blurDataURL='/img/companyprofile.png'
                   quality={10}
                 />
               <div className='absolute w-full text-center opacity-0 group-hover:opacity-100 top-1/3'>

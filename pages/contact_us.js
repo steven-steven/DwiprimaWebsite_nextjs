@@ -1,8 +1,10 @@
 import Head from 'next/head'
 import NavBar from '../components/navigation'
 import ContactForm from '../components/contact_form';
+import { useRouter } from 'next/router';
 
 export default function ContactUs() {
+  const {locale} = useRouter()
   return (
     <div className='flex flex-col'>
       <Head>
@@ -22,7 +24,7 @@ export default function ContactUs() {
             <hr className='h-px my-2 bg-gray-400 border-0'/>
           </div>
           <div className='p-8 mx-2 my-8 text-white border border-white md:mx-24 rounded-3xl'>
-            <ContactForm/>
+            <ContactForm locale={locale}/>
           </div>
         </div>
       </section>
