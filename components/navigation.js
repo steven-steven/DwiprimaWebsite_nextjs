@@ -48,7 +48,7 @@ export default function NavBar({locale}) {
         <Link href='/'><div className={`hover:underline underline-offset-8 hover:cursor-pointer ${router.pathname == '/' ? 'underline' : ''}`}>Home</div></Link>
         <Link href='/blog' locale={false}><div className={`hover:underline underline-offset-8 hover:cursor-pointer ${router.pathname == '/blog' ? 'underline' : ''}`}>Blog</div></Link>
       </div>
-      <div className='flex w-auto ml-auto md:ml-0 md:mr-24 flex-2'>
+      <div className='flex ml-auto md:ml-0 md:mr-24 flex-2 md:min-w-[150px]'>
         {router.pathname == '/' && (
           <div className='flex items-center'>
             <Link href='/contact_us'>
@@ -62,13 +62,29 @@ export default function NavBar({locale}) {
                 onClick={changeLocale}
               >
                 <input type="checkbox" name="toggle" 
-                  className='absolute block w-5 h-5 bg-white border-4 border-white rounded-full appearance-none cursor-pointer md:w-10 md:h-10 checked:right-0 opacity-40'
+                  className='absolute z-10 block w-5 h-5 bg-white border-4 border-white rounded-full appearance-none cursor-pointer md:w-10 md:h-10 checked:right-0 opacity-40'
                   checked={locale === "id-ID"}
                   readOnly
                 />
-                <label htmlFor="toggle" 
-                  className={`toggle-label block overflow-hidden h-5 md:h-10 rounded-full cursor-pointer ${locale === "id-ID" ? 'bg-contain bg-indo-flag':'bg-cover bg-us-flag'}`}>
-                </label>
+                <div className='relative block h-5 overflow-hidden rounded-full cursor-pointer md:h-10'>
+                  <label htmlFor="toggle" />
+                  <div className='absolute w-full h-full'>
+                    <Image
+                      src="/indo_flag.svg"
+                      layout="fill"
+                      objectFit="cover"
+                      priority
+                    />
+                    <div className={locale === "id-ID" ? 'hidden': 'block'}>
+                      <Image
+                        src="/us_flag.svg"
+                        layout="fill"
+                        objectFit="cover"
+                        priority
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

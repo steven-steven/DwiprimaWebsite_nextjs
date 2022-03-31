@@ -66,7 +66,13 @@ export default function Blog({ posts }) {
 const BlogEntry = ({ slug, description, img_src, title, date }) => (
   <Link href={`/blog/${slug}`}>
     <div className='flex flex-col md:p-3 md:h-56 md:flex-row group hover:border hover:border-gray-400 hover:cursor-pointer'>
-      <img src={img_src} className='md:h-full :w-full'/>
+      <div className='relative w-full h-56 md:w-96 md:h-full'>
+        <Image
+          src={img_src}
+          layout="fill"
+          objectFit="cover"
+        />
+      </div>
       <div className='flex flex-col px-5 py-5 md:px-10'>
         <p className='mb-3 text-xl'>{title}</p>
         <p className='text-sm text-gray-500 grow'>{description}</p>

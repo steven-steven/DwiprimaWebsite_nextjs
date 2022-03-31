@@ -105,8 +105,20 @@ export default function Home(props) {
                 </div>
               </div>
               <div className='flex-col items-center justify-end hidden h-full md:flex'>
-                <img src='/img/wheel.png' className='w-64 h-64'/>
-                <img src='/img/cowboy.png' className='h-2/5'/>
+                <div className='relative w-64 h-64'>
+                  <Image
+                    src='/img/wheel.png'
+                    layout="fill"
+                    objectFit="scale-down"
+                  />
+                </div>
+                <div className='relative w-full h-2/5'>
+                  <Image
+                    src='/img/cowboy.png'
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </div>
               </div>
             </div>
           </div>
