@@ -3,7 +3,7 @@ import NavBar from '../../components/navigation'
 import fs from 'fs';
 import matter from 'gray-matter';
 import ReactMarkdown from 'react-markdown';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 
 // determines which paths will be prerendered amongst the /posts/[slug]
 export async function getStaticPaths() {

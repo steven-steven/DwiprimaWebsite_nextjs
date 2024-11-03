@@ -7,7 +7,7 @@ import NavBar from '../components/navigation'
 import { Parallax } from 'react-scroll-parallax';
 import { useState } from 'react';
 import { ParallaxProvider } from 'react-scroll-parallax';
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import ReactHtmlParser from 'react-html-parser'; 
 
 export const getStaticProps = async (context) => {

@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { useRouter } from "next/router";
 import { MenuIcon, XIcon } from '@heroicons/react/solid'
 import { useState } from 'react';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 
 const content = {
   "en-US": {
