@@ -7,8 +7,8 @@ import NavBar from '../components/navigation'
 import { Parallax } from 'react-scroll-parallax';
 import { useState } from 'react';
 import { ParallaxProvider } from 'react-scroll-parallax';
-import Image from "next/legacy/image"
-import ReactHtmlParser from 'react-html-parser'; 
+import Image from "next/image"
+import ReactHtmlParser from 'react-html-parser';
 
 export const getStaticProps = async (context) => {
   return {
@@ -36,7 +36,7 @@ const content = {
     contact: "Contact Us",
     contactDesc: "Please reach out and we'll do our best to help you",
     footnote: "Made with 🛠‍ in Cilegon Indonesia",
-  }, 
+  },
   "id-ID": {
     language: "Pilih Bahasa",
     h1: "Kontraktor specialis <u>Sandblasting</u>, <u>Painting</u> & <u>Persewaan Alat Berat</u> terkemuka di Indonesia",
@@ -65,21 +65,22 @@ export default function Home(props) {
   const localeContent = content[locale] || content['en-US'];
 
   return (
-    <div>
+    (<div>
       <Head>
         <title>Dwiprima Karyaguna</title>
         <link rel="icon" href="/dpLogo.ico" />
       </Head>
-
       <section className='relative text-white md:h-1 md:min-h-screen'>
         <div className='absolute w-full h-full -z-10'>
           <Image
             alt="Main Background"
             src="/img/main-bg.png"
-            layout="fill"
-            objectFit="cover"
             priority
-          />
+            fill
+            sizes="100vw"
+            style={{
+              objectFit: "cover"
+            }} />
         </div>
         <div className='fixed top-0 left-0 right-0 z-50 flex justify-center h-16 md:hidden bg-opacity-80 bg-primary-blue'>
           <NavBar locale={locale}/>
@@ -97,34 +98,40 @@ export default function Home(props) {
                   <Image
                     alt="BlastingImage"
                     src="/img/blast1.png"
-                    layout="responsive"
                     priority
                     width={1040}
                     height={585}
-                  />
+                    sizes="100vw"
+                    style={{
+                      width: "100%",
+                      height: "auto"
+                    }} />
                 </div>
               </div>
               <div className='flex-col items-center justify-end hidden h-full md:flex'>
                 <div className='relative w-64 h-64'>
                   <Image
                     src='/img/wheel.png'
-                    layout="fill"
-                    objectFit="scale-down"
-                  />
+                    fill
+                    sizes="100vw"
+                    style={{
+                      objectFit: "scale-down"
+                    }} />
                 </div>
                 <div className='relative w-full h-2/5'>
                   <Image
                     src='/img/cowboy.png'
-                    layout="fill"
-                    objectFit="cover"
-                  />
+                    fill
+                    sizes="100vw"
+                    style={{
+                      objectFit: "cover"
+                    }} />
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-
       <section className='mb-5 bg-white md:mb-10'>
         <p className='my-10 text-2xl text-center md:text-4xl'>{localeContent.clients}</p>
         <div className="grid items-stretch justify-around grid-cols-4 mx-5 md:mx-20 md:grid-cols-6 justify-items-center gap-x-6 md:gap-x-12">
@@ -134,32 +141,35 @@ export default function Home(props) {
                 key={i}
                 alt="PartnerLogo"
                 src={`/clientLogos/${i+1}.png`}
-                layout="fill"
-                objectFit="scale-down"
                 quality={30}
-              />
+                fill
+                sizes="100vw"
+                style={{
+                  objectFit: "scale-down"
+                }} />
             </div>
           ))}
         </div>
       </section>
-
       <section id='showcase_video' className='h-96'>
         <div className='absolute w-full overflow-hidden h-96 -z-10'>
           <Image
             alt="Promotional video"
             src="/img/vid_preview.gif"
-            layout="fill"
-            objectFit="cover"
-            objectPosition="center"
             placeholder="blur"
             blurDataURL='/img/vidBlurData.png'
-          />
+            fill
+            sizes="100vw"
+            style={{
+              objectFit: "cover",
+              objectPosition: "center"
+            }} />
         </div>
         <div className='h-full bg-opacity-60 bg-video-blue'>
           <div className='flex flex-col justify-center h-full text-xl md:text-4xl'>
             <p className='mb-10 text-center'>{localeContent.video}</p>
-            <Link href="/video">
-              <div className='inline-block px-10 py-6 mx-auto my-0 align-middle border border-black hover:bg-opacity-50 hover:cursor-pointer hover:bg-gray-700 group rounded-3xl'>
+            <Link href="/video" className='flex justify-center'>
+              <div className='inline-block px-10 py-6 mx-auto my-0 border border-black hover:bg-opacity-50 hover:cursor-pointer hover:bg-gray-700 group rounded-3xl'>
                 <PlayIcon className="hidden w-16 h-16 text-blue-700 group-hover:inline"/>
                 <PlayOutline className="inline w-16 h-16 text-blue-700 group-hover:hidden"/>
                 <span>&nbsp; {localeContent.video2}</span>
@@ -168,14 +178,12 @@ export default function Home(props) {
           </div>
         </div>
       </section>
-
       <section id='about_us' className='bg-white'>
         <div className='flex flex-col items-center mt-10 md:mt-0 md:flex-row'>
           <p className='inline-block w-1/3 text-xl text-center md:font-semibold md:text-3xl'>{localeContent.aboutus}</p>
           <p className='px-10 py-10 text-sm md:px-0 md:w-2/3 md:text-xl md:py-20 md:pr-20'>{ReactHtmlParser(localeContent.aboutus2)} </p>
         </div>
       </section>
-
       <div className='flex flex-col items-center mt-10 mb-20 md:mt-0'>
         <p className='mb-5 text-xl md:text-3xl'>{localeContent.companyprofile}</p>
         <a className='relative block w-32 h-60 md:float-right group md:w-36' href="/company_profile.pdf" download="Dwiprima Company Profile">
@@ -183,16 +191,17 @@ export default function Home(props) {
             src='/img/companyprofile.png'
             className='group-hover:opacity-60'
             alt="Click to download Company Profile"
-            layout="fill"
-            objectFit="scale-down"
             quality={10}
-          />
+            fill
+            sizes="100vw"
+            style={{
+              objectFit: "scale-down"
+            }} />
           <div className='absolute w-full text-center opacity-0 group-hover:opacity-100 top-1/3'>
             <DownloadIcon className='inline w-12 h-12 p-3 border rounded-3xl'/>
           </div>
         </a>
       </div>
-
       <ParallaxProvider>
       <section id='services' className='text-white bg-white'>
         <div className='sticky top-0 z-10 flex-col hidden px-5 py-2 text-lg bg-white md:flex md:flex-row md:text-xl gap-y-2 md:gap-x-2 bg-opacity-90'>
@@ -206,9 +215,11 @@ export default function Home(props) {
               <Image
                 alt="Main Background"
                 src="/img/main-bg.png"
-                layout="fill"
-                objectFit="cover"
-              />
+                fill
+                sizes="100vw"
+                style={{
+                  objectFit: "cover"
+                }} />
             </div>
             <div className='flex flex-col px-8 py-48 md:flex-row bg-primary-blue opacity-90'>
               <div className='md:w-1/2'>
@@ -218,7 +229,10 @@ export default function Home(props) {
                   // priority
                   width={1486}
                   height={920}
-                />
+                  style={{
+                    maxWidth: "100%",
+                    height: "auto"
+                  }} />
               </div>
               <Parallax className='md:w-1/2' speed={50} onEnter={()=> setScrollParallaxNum(0)}>
                 <div className='flex flex-col w-full p-5 md:p-10'>
@@ -234,9 +248,11 @@ export default function Home(props) {
               <Image
                 alt="Main Background"
                 src="/img/main-bg.png"
-                layout="fill"
-                objectFit="cover"
-              />
+                fill
+                sizes="100vw"
+                style={{
+                  objectFit: "cover"
+                }} />
             </div>
             <div className='flex flex-col px-8 py-48 md:flex-row bg-primary-blue opacity-90'>
               <div className='md:w-1/2'>
@@ -246,14 +262,20 @@ export default function Home(props) {
                   // priority
                   width={1404}
                   height={1002}
-                />
+                  style={{
+                    maxWidth: "100%",
+                    height: "auto"
+                  }} />
                 <Image
                   alt="Inspection Tools"
                   src="/img/inspectionTools.png"
                   // priority
                   width={1656}
                   height={1268}
-                />
+                  style={{
+                    maxWidth: "100%",
+                    height: "auto"
+                  }} />
               </div>
               <Parallax className='md:w-1/2' speed={50} onEnter={()=> setScrollParallaxNum(1)}>
                 <div className='flex flex-col w-full p-5 md:p-10'>
@@ -269,9 +291,11 @@ export default function Home(props) {
               <Image
                 alt="Main Background"
                 src="/img/main-bg.png"
-                layout="fill"
-                objectFit="cover"
-              />
+                fill
+                sizes="100vw"
+                style={{
+                  objectFit: "cover"
+                }} />
             </div>
             <div className='flex flex-col px-8 py-48 md:flex-row bg-primary-blue opacity-90'>
               <div className='md:w-1/2'>
@@ -281,7 +305,10 @@ export default function Home(props) {
                   // priority
                   width={1500}
                   height={986}
-                />
+                  style={{
+                    maxWidth: "100%",
+                    height: "auto"
+                  }} />
               </div>
               <Parallax className='md:w-1/2' speed={50} onEnter={()=> setScrollParallaxNum(2)}>
                 <div className='flex flex-col w-full p-5 md:p-20'>
@@ -295,19 +322,15 @@ export default function Home(props) {
         </div>
       </section>
       </ParallaxProvider>
-
-
-
       <section id='blog_banner' className='bg-white'>
         <div className='flex flex-col items-center text-xl md:text-3xl md:flex-row'>
           <p className='inline-block px-10 pt-10 md:pb-16 md:px-24 md:w-1/2'>{localeContent.blog}</p>
           <Link href='/blog' locale={false}><div className='px-16 py-8 mx-auto my-10 text-lg border-4 md:my-0 md:text-xl hover:bg-gray-200 hover:cursor-pointer rounded-3xl'><span>{localeContent.blogButton}</span></div></Link>
         </div>
       </section>
-
       <section id='contact_us' className='text-white bg-primary-blue'>
         <div className='flex flex-col py-16 text-3xl md:py-24 md:text-4xl md:flex-row'>
-          <p className='inline-block px-10 text-center md:text-left md:pr-40 md:pl-24 md:w-1/2'>{localeContent.contact}<br/> 
+          <p className='inline-block px-10 text-center md:text-left md:pr-40 md:pl-24 md:w-1/2'>{localeContent.contact}<br/>
             <span className='hidden text-xl md:inline'>{localeContent.contactDesc}</span>
           </p>
           <div className='px-10 pt-12 md:px-0 md:pt-0 md:pr-24'>
@@ -315,7 +338,6 @@ export default function Home(props) {
           </div>
         </div>
       </section>
-
       <footer className='text-white bg-black'>
         <div className='flex flex-col pt-8 mx-10 md:mx-24 md:grid md:grid-cols-2 md:pt-11'>
           <div>
@@ -323,10 +345,12 @@ export default function Home(props) {
               <div id='logo' className='relative w-10 h-10 md:w-20 md:h-20'>
                 <Image
                   src='/logo-bw.png'
-                  layout='fill'
-                  objectFit="contain"
                   quality={30}
-                />
+                  fill
+                  sizes="100vw"
+                  style={{
+                    objectFit: "contain"
+                  }} />
               </div>
               <span className='md:text-2xl'>PT Dwiprima Karyaguna</span>
             </div>
@@ -344,12 +368,14 @@ export default function Home(props) {
                   src='/img/companyprofile.png'
                   className='group-hover:opacity-60'
                   alt="Click to download Company Profile"
-                  layout="fill"
-                  objectFit="scale-down"
                   placeholder='blur'
                   blurDataURL='/img/companyprofile.png'
                   quality={10}
-                />
+                  fill
+                  sizes="100vw"
+                  style={{
+                    objectFit: "scale-down"
+                  }} />
               <div className='absolute w-full text-center opacity-0 group-hover:opacity-100 top-1/3'>
                 <DownloadIcon className='inline w-12 h-12 p-3 border rounded-3xl'/>
               </div>
@@ -364,6 +390,6 @@ export default function Home(props) {
           </div>
         </div>
       </footer>
-    </div>
-  )
+    </div>)
+  );
 }

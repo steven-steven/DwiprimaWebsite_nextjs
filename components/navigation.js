@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { useRouter } from "next/router";
 import { MenuIcon, XIcon } from '@heroicons/react/solid'
 import { useState } from 'react';
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 const content = {
   "en-US": {
@@ -27,16 +27,18 @@ export default function NavBar({locale}) {
   }
 
   return (
-    <div id='navigation' className='flex flex-row items-center justify-between w-full text-sm md:text-2xl md:justify-center'>
+    (<div id='navigation' className='flex flex-row items-center justify-between w-full text-sm md:text-2xl md:justify-center'>
       <Link href={'/'}>  
         <div className='flex flex-row pl-5 md:w-1/5 flex-2 gap-x-2 md:gap-x-4'>
           <div id='logo' className='relative w-12 h-12 md:w-24 md:h-24'>
             <Image
               src='/logo-bw.png'
-              layout='fill'
-              objectFit="contain"
               quality={30}
-            />
+              fill
+              sizes="100vw"
+              style={{
+                objectFit: "contain"
+              }} />
           </div>
           <div className='flex flex-col justify-center invisible xxs:visible'>
             <span> Dwiprima </span>
@@ -71,17 +73,21 @@ export default function NavBar({locale}) {
                   <div className='absolute w-full h-full'>
                     <Image
                       src="/indo_flag.svg"
-                      layout="fill"
-                      objectFit="cover"
                       priority
-                    />
+                      fill
+                      sizes="100vw"
+                      style={{
+                        objectFit: "cover"
+                      }} />
                     <div className={locale === "id-ID" ? 'hidden': 'block'}>
                       <Image
                         src="/us_flag.svg"
-                        layout="fill"
-                        objectFit="cover"
                         priority
-                      />
+                        fill
+                        sizes="100vw"
+                        style={{
+                          objectFit: "cover"
+                        }} />
                     </div>
                   </div>
                 </div>
@@ -91,7 +97,6 @@ export default function NavBar({locale}) {
           
         )}
       </div>
-
       <MenuIcon className="w-8 h-8 mr-10 md:hidden flex-2" onClick={() => setIsHamburgerOpen(true)}/>
       <div className={`fixed ease-in-out duration-300 bottom-0 right-0 w-1/2 h-screen bg-blue-400 md:hidden ${isHamburgerOpen ? "translate-x-0 " : "translate-x-full"}`}>
         <div className='flex flex-col pt-20 pl-10 text-2xl text-black gap-y-10'>
@@ -101,6 +106,6 @@ export default function NavBar({locale}) {
           <Link href='/contact_us' locale={false}><span className="active:text-white">Contact</span></Link>
         </div>
       </div>
-    </div>
-  )
+    </div>)
+  );
 }

@@ -3,7 +3,7 @@ import NavBar from '../../components/navigation'
 import fs from 'fs';
 import matter from 'gray-matter';
 import ReactMarkdown from 'react-markdown';
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 // determines which paths will be prerendered amongst the /posts/[slug]
 export async function getStaticPaths() {
@@ -40,23 +40,23 @@ export async function getStaticProps({ params: { slug } }) {
 export default function Post( { slug, content, frontmatter } ) {
 
   return (
-    <div className='flex flex-col bg-slate-200'>
+    (<div className='flex flex-col bg-slate-200'>
       <Head>
         <title>Dwiprima Karyaguna</title>
         <link rel="icon" href="/dpLogo.ico" />
       </Head>
-
       <section className='py-5 text-white bg-primary-blue'>
         <NavBar/>
       </section>
-
       <section className='px-8 pt-8 pb-20 md:px-24 bg-slate-200'>
         <div className='relative w-full h-64 mx-auto my-0 mb-10 md:w-1/2 md:h-96'>
           <Image
             src={frontmatter.img_src}
-            layout="fill"
-            objectFit="cover"
-          />
+            fill
+            sizes="100vw"
+            style={{
+              objectFit: "cover"
+            }} />
         </div>
         <h1 className='mb-2 text-2xl text-center md:text-4xl'>{frontmatter.title}</h1>
         <p className='mb-12 text-base text-center md:text-lg'>{frontmatter.date} | {frontmatter.author}</p>
@@ -65,8 +65,6 @@ export default function Post( { slug, content, frontmatter } ) {
           <iframe className='mx-auto my-0 mt-10' width="560" height="315" src={frontmatter.vid_src} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
         }
       </section>
-      
-      
-    </div>
+    </div>)
   );
 }

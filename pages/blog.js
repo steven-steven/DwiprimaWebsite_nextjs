@@ -3,7 +3,7 @@ import Link from 'next/link'
 import NavBar from '../components/navigation'
 import fs from 'fs';
 import matter from 'gray-matter';
-import Image from "next/legacy/image"
+import Image from "next/image"
 
 export async function getStaticProps() {
   const files = fs.readdirSync(`${process.cwd()}/data/posts`);
@@ -69,9 +69,11 @@ const BlogEntry = ({ slug, description, img_src, title, date }) => (
       <div className='relative w-full h-56 md:w-96 md:h-full'>
         <Image
           src={img_src}
-          layout="fill"
-          objectFit="cover"
-        />
+          fill
+          sizes="100vw"
+          style={{
+            objectFit: "cover"
+          }} />
       </div>
       <div className='flex flex-col px-5 py-5 md:px-10'>
         <p className='mb-3 text-xl'>{title}</p>
