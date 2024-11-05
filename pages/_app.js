@@ -2,7 +2,6 @@ import '../styles/globals.css'
 import Script from 'next/script'
 
 function MyApp({ Component, pageProps }) {
-  console.log(process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS);
   return (
     <div>
       <Script
