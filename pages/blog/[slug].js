@@ -39,11 +39,34 @@ export async function getStaticProps({ params: { slug } }) {
 
 export default function Post( { slug, content, frontmatter } ) {
 
+  const metadata_title = `${frontmatter.title} | Dwiprima Karyaguna Blog`
+
   return (
     (<div className='flex flex-col bg-slate-200'>
       <Head>
-        <title>Dwiprima Karyaguna</title>
+        <title>{metadata_title}</title>
         <link rel="icon" href="/dpLogo.ico" />
+        <meta name="description" content={metadata_title} />
+        <meta name="keywords" content="blog, sandblasting, painting, coating, heavy equipment rentals, company, contractor" />
+
+        {/* Open Graph Meta Tags */}
+        <meta property="og:url" content="https://dwiprimakaryaguna.vercel.app" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={metadata_title} />
+        <meta property="og:description" content={metadata_title} />
+        <meta property="og:image" content="https://dwiprimakaryaguna.vercel.app/img/blast1.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Dwiprima Karyaguna Sandblasting" />
+
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={metadata_title} />
+        <meta name="twitter:description" content={metadata_title} />
+        <meta name="twitter:image" content="https://dwiprimakaryaguna.vercel.app/img/blast1.png" />
+        <meta name="twitter:image:width" content="1200" />
+        <meta name="twitter:image:height" content="630" />
+        <meta name="twitter:image:alt" content="Dwiprima Karyaguna Sandblasting" />
       </Head>
       <section className='py-5 text-white bg-primary-blue'>
         <NavBar/>

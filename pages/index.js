@@ -69,6 +69,27 @@ export default function Home(props) {
       <Head>
         <title>Dwiprima Karyaguna</title>
         <link rel="icon" href="/dpLogo.ico" />
+        <meta name="description" content="Dwiprima Karyaguna - Indonesia's leading Sandblasting, Painting & Heavy Equipment Rental company" />
+        <meta name="keywords" content="sandblasting, painting, coating, heavy equipment rentals, company, contractor" />
+
+        {/* Open Graph Meta Tags */}
+        <meta property="og:url" content="https://dwiprimakaryaguna.vercel.app" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Dwiprima Karyaguna - Indonesia's leading Sandblasting, Painting & Heavy Equipment Rental company" />
+        <meta property="og:description" content="Dwiprima Karyaguna - Indonesia's leading Sandblasting, Painting & Heavy Equipment Rental company" />
+        <meta property="og:image" content="https://dwiprimakaryaguna.vercel.app/img/blast1.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Dwiprima Karyaguna Sandblasting" />
+
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Dwiprima Karyaguna - Indonesia's leading Sandblasting, Painting & Heavy Equipment Rental company" />
+        <meta name="twitter:description" content="Dwiprima Karyaguna - Indonesia's leading Sandblasting, Painting & Heavy Equipment Rental company" />
+        <meta name="twitter:image" content="https://dwiprimakaryaguna.vercel.app/img/blast1.png" />
+        <meta name="twitter:image:width" content="1200" />
+        <meta name="twitter:image:height" content="630" />
+        <meta name="twitter:image:alt" content="Dwiprima Karyaguna Sandblasting" />
       </Head>
       <section className='relative text-white md:h-1 md:min-h-screen'>
         <div className='absolute w-full h-full -z-10'>
@@ -136,7 +157,7 @@ export default function Home(props) {
         <p className='my-10 text-2xl text-center md:text-4xl'>{localeContent.clients}</p>
         <div className="grid items-stretch justify-around grid-cols-4 mx-5 md:mx-20 md:grid-cols-6 justify-items-center gap-x-6 md:gap-x-12">
           { [...Array(23).keys()].map(i => (
-            <div className='relative w-16 h-16 cursor-pointer md:w-32 md:h-32 md:grayscale hover:grayscale-0'>
+            <div key={i} className='relative w-16 h-16 cursor-pointer md:w-32 md:h-32 md:grayscale hover:grayscale-0'>
               <Image
                 key={i}
                 alt="PartnerLogo"
